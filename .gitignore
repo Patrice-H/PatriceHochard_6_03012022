@@ -1,0 +1,7 @@
+# ignore package.json and .eslintrc.json
+package.json
+package-lock.json
+.eslintrc.json
+
+#ignore node_modules folder
+node_modules/
