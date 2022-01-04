@@ -1,17 +1,33 @@
 // eslint-disable-next-line no-unused-vars
 function photographerFactory(data) {
-    const { name, portrait } = data;
+    const { name, portrait, city, country, tagline, price } = data;
 
     const picture = `assets/photographers/${portrait}`;
-
+    const link = portrait.substring(0, portrait.length - 4) + '.html';
+    
     function getUserCardDOM() {
         const article = document.createElement('article');
+        const a = document.createElement('a');
+        a.setAttribute('href', link);
         const img = document.createElement('img');
         img.setAttribute('src', picture);
         const h2 = document.createElement('h2');
         h2.textContent = name;
-        article.appendChild(img);
-        article.appendChild(h2);
+        const plocation = document.createElement('p');
+        plocation.setAttribute('class', 'location');
+        plocation.textContent = city + ', ' + country;
+        const ptagline = document.createElement('p');
+        ptagline.setAttribute('class', 'tagline');
+        ptagline.textContent = tagline;
+        const pprice = document.createElement('p');
+        pprice.setAttribute('class', 'price');
+        pprice.textContent = price + '€/jour';
+        a.appendChild(img);
+        a.appendChild(h2);
+        article.appendChild(a);
+        article.appendChild(plocation);
+        article.appendChild(ptagline);
+        article.appendChild(pprice);
 
         return (article);
     }
