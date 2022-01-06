@@ -2,10 +2,53 @@
     display: none;
 }
 
+#header-main img {
+    width: 200px;
+    height: 200px;
+    margin: 57px 0 0 50px;
+    order: 3;
+}
+
 .photograph-header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
     background-color: #FAFAFA;
-    height: 300px;
-    margin: 0 100px;
+    height: 313px;
+    margin: 43px 100px 0;
+    padding: 0 50px;
+    min-width: 1005px;
+}
+ 
+h2,
+p.location {
+    color: #D3573C;
+}
+
+.photograph-header h2 {
+    font-size: 64px;
+    display: inline-block;
+    line-height: 83.33px;
+    white-space: nowrap;
+    margin: 71px 0 0;
+}
+
+.photograph-header p.location {
+    font-size: 24px;
+    display: inline-block;
+    margin: 0;
+}
+
+.photograph-header p.tagline {
+    font-size: 18px;
+    display: inline-block;
+    margin-top: 15px;
+}
+
+.photograph-header div {
+    margin: 0 50px 0 0;
+    height: 100%;
+    flex-basis: min-content;
 }
 
 .contact_button {
@@ -15,10 +58,12 @@
     padding: 11px;
     width: 170px;
     height: 70px;
+    margin-top: 137px;
     border: none;
     background-color: #901C1C;
     border-radius: 5px;
     cursor: pointer;
+    order: 2;
 }
 
 .modal {

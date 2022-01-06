@@ -19,10 +19,16 @@ async function displayData(photographers) {
     });
 }
 
+function saveData(photographers) {
+    photographers.forEach((photographer) => {
+        sessionStorage.setItem(photographer.id, JSON.stringify(photographer));
+    });  
+}
+
 async function init() {
-    // Récupère les datas des photographes
     const photographers = await getPhotographers();
     displayData(photographers);
+    saveData(photographers);
 }
 
 init();

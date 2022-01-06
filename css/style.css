@@ -44,11 +44,6 @@ h1 {
     text-decoration: none;
 }
 
-.photographer_section article h2, 
-.photographer_section article p.location {
-    color: #D3573C;
-}
-
 .photographer_section article h2 {
     font-size: 36px;
 }
