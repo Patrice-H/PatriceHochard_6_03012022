@@ -34,5 +34,36 @@ function photographerFactory(data) {
 
         return (article);
     }
-    return { name, picture, getUserCardDOM };
+
+    function getHeaderLabel() {
+        const div = document.createElement('div');
+        div.setAttribute('id', 'label');
+        const h1 = document.createElement('h1');
+        h1.textContent = name;
+        const plocation = document.createElement('p');
+        plocation.setAttribute('class', 'location');
+        plocation.textContent = city + ', ' + country;
+        const ptagline = document.createElement('p');
+        ptagline.setAttribute('class', 'tagline');
+        ptagline.textContent = tagline;
+        const br1 = document.createElement('br');
+        const br2 = document.createElement('br');
+        div.appendChild(h1);
+        div.appendChild(br1);
+        div.appendChild(plocation);
+        div.appendChild(br2);
+        div.appendChild(ptagline);
+
+        return (div);
+    }
+
+    function getHeaderPicture() {
+        const img = document.createElement('img');
+        img.setAttribute('src', picture);
+        img.setAttribute('alt', '');
+
+        return (img);
+    }
+
+    return { name, picture, getUserCardDOM, getHeaderLabel, getHeaderPicture };
 }

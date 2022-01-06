@@ -21,11 +21,12 @@
 }
  
 h2,
+.photograph-header h1, 
 p.location {
     color: #D3573C;
 }
 
-.photograph-header h2 {
+.photograph-header h1 {
     font-size: 64px;
     display: inline-block;
     line-height: 83.33px;
