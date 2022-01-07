@@ -2,22 +2,26 @@
     display: none;
 }
 
+.picture {
+    text-align: right;
+    width: 62%;
+}
+
 #header-main img {
     width: 200px;
     height: 200px;
-    margin: 57px 0 0 50px;
-    order: 3;
+    
 }
 
 .photograph-header {
     position: relative;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     background-color: #FAFAFA;
     height: 313px;
     margin: 43px 100px 0;
     padding: 0 50px;
-    min-width: 1005px;
 }
  
 h2,
@@ -28,10 +32,10 @@ p.location {
 
 .photograph-header h1 {
     font-size: 64px;
+    font-weight: normal;
     display: inline-block;
     line-height: 83.33px;
-    white-space: nowrap;
-    margin: 71px 0 0;
+    margin: 0;
 }
 
 .photograph-header p.location {
@@ -47,9 +51,7 @@ p.location {
 }
 
 .photograph-header div {
-    margin: 0 50px 0 0;
-    height: 100%;
-    flex-basis: min-content;
+    flex-grow: 1;
 }
 
 .contact_button {
@@ -59,12 +61,14 @@ p.location {
     padding: 11px;
     width: 170px;
     height: 70px;
-    margin-top: 137px;
+    position: absolute;
+    top: 137px;
+    left: 50%;
+    transform: translateX(-50%);
     border: none;
     background-color: #901C1C;
     border-radius: 5px;
     cursor: pointer;
-    order: 2;
 }
 
 .modal {

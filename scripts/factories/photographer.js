@@ -58,11 +58,14 @@ function photographerFactory(data) {
     }
 
     function getHeaderPicture() {
+        const div = document.createElement('div');
+        div.setAttribute('class', 'picture');
         const img = document.createElement('img');
         img.setAttribute('src', picture);
         img.setAttribute('alt', '');
+        div.appendChild(img);
 
-        return (img);
+        return (div);
     }
 
     return { name, picture, getUserCardDOM, getHeaderLabel, getHeaderPicture };
