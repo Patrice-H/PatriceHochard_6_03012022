@@ -10,18 +10,19 @@ function getPhotographerData(id) {
     return (JSON.parse(photographers));
 }
 
-function getPhotographHeader(photographer) {
-    const headerMain = document.getElementById('header-main');
+function displayHeader(data) {
     // eslint-disable-next-line no-undef
-    const photographerModel = photographerFactory(photographer);
-    const headerLabel = photographerModel.getHeaderLabel();
-    const headerPicture = photographerModel.getHeaderPicture();
-    headerMain.appendChild(headerLabel);
-    headerMain.appendChild(headerPicture);
-
+    const photographer = photographerFactory(data);
+    const h1 = document.getElementById('label-title');
+    const plocation = document.getElementById('label-location');
+    const ptagline = document.getElementById('label-tagline');
+    const img = document.getElementById('header-picture');
+    h1.textContent = photographer.name;
+    plocation.textContent = photographer.city + ', ' + photographer.country;
+    ptagline.textContent = photographer.tagline;
+    img.setAttribute('src', photographer.portrait);
 }
 
 const pageId = getPhotographerPageId();
 const pdata = getPhotographerData(pageId);
-console.log(pdata);
-getPhotographHeader(pdata);
+displayHeader(pdata);

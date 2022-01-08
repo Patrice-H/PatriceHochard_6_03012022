@@ -13,7 +13,15 @@
     </header>
     <main id="main">
       <div class="photograph-header" id="header-main">
+        <div id="label">
+          <h1 id="label-title"></h1><br />
+          <p class="location" id="label-location"></p><br />
+          <p class="tagline" id="label-tagline"></p>
+        </div>
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <div class="picture">
+          <img src="" alt="" id="header-picture">
+        </div>
       </div>
     </main>
     <div id="contact_modal">
@@ -32,7 +40,7 @@
 			</div>
 		</div>
     <script src="/scripts/utils/contactForm.js"></script>
-    <script src="scripts/factories/photographer.js"></script>
+    <script src="scripts/factories/photographerFactory.js"></script>
     <script src="/scripts/pages/photographer.js"></script>
   </body>
 </html>
