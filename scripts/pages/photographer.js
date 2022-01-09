@@ -1,28 +1,29 @@
 function getPhotographerPageId() {
-    const url = location.href;
-    const photographerPage = url.split('?id=')[1];
-    return photographerPage;
+    const URL = location.href;
+    const PHOTOGRAPHER_PAGE = URL.split('?id=')[1];
+
+    return PHOTOGRAPHER_PAGE;
 }
 
 function getPhotographerData(id) {
-    const photographers = sessionStorage.getItem(id);
+    const PHOTOGRAPHERS = sessionStorage.getItem(id);
 
-    return (JSON.parse(photographers));
+    return (JSON.parse(PHOTOGRAPHERS));
 }
 
-function displayHeader(data) {
+function displayPhotographerPresentation(data) {
     // eslint-disable-next-line no-undef
-    const photographer = photographerFactory(data);
-    const h1 = document.getElementById('label-title');
-    const plocation = document.getElementById('label-location');
-    const ptagline = document.getElementById('label-tagline');
-    const img = document.getElementById('header-picture');
-    h1.textContent = photographer.name;
-    plocation.textContent = photographer.city + ', ' + photographer.country;
-    ptagline.textContent = photographer.tagline;
-    img.setAttribute('src', photographer.portrait);
+    const PHOTOGRAPHER = photographerFactory(data);
+    const NAME = document.getElementById('presentation-name');
+    const LOCATION = document.getElementById('presentation-location');
+    const TAGLINE = document.getElementById('presentation-tagline');
+    const PICTURE = document.getElementById('presentation-img');
+    NAME.textContent = PHOTOGRAPHER.name;
+    LOCATION.textContent = PHOTOGRAPHER.city + ', ' + PHOTOGRAPHER.country;
+    TAGLINE.textContent = PHOTOGRAPHER.tagline;
+    PICTURE.setAttribute('src', PHOTOGRAPHER.portrait);
 }
 
-const pageId = getPhotographerPageId();
-const pdata = getPhotographerData(pageId);
-displayHeader(pdata);
+const PAGE_ID = getPhotographerPageId();
+const PHOTOGRAPHER_DATA = getPhotographerData(PAGE_ID);
+displayPhotographerPresentation(PHOTOGRAPHER_DATA);

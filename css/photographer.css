@@ -1,19 +1,12 @@
-#contact_modal {
-    display: none;
+/* General */
+h2,
+h1#presentation-name, 
+p.location {
+    color: #D3573C;
 }
 
-.picture {
-    text-align: right;
-    width: 62%;
-}
-
-#header-main img {
-    width: 200px;
-    height: 200px;
-    
-}
-
-.photograph-header {
+/* presentation section */
+#presentation {
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -23,37 +16,26 @@
     margin: 43px 100px 0;
     padding: 0 50px;
 }
- 
-h2,
-.photograph-header h1, 
-p.location {
-    color: #D3573C;
+#presentation-card {
+    flex-grow: 1;
 }
-
-.photograph-header h1 {
+#presentation-name {
     font-size: 64px;
     font-weight: normal;
     display: inline-block;
     line-height: 83.33px;
     margin: 0;
 }
-
-.photograph-header p.location {
+#presentation-location {
     font-size: 24px;
     display: inline-block;
     margin: 0;
 }
-
-.photograph-header p.tagline {
+#presentation-tagline {
     font-size: 18px;
     display: inline-block;
     margin-top: 15px;
 }
-
-.photograph-header div {
-    flex-grow: 1;
-}
-
 .contact_button {
     font-size: 20px;
     font-weight: bold;
@@ -70,7 +52,20 @@ p.location {
     border-radius: 5px;
     cursor: pointer;
 }
+#presentation-picture {
+    text-align: right;
+    width: 62%;
+}
+#presentation-img {
+    width: 200px;
+    height: 200px;
+    
+}
 
+/* modal contact window */
+#contact_modal {
+    display: none;
+}
 .modal {
     border-radius: 5px;
     background-color: #DB8876;
@@ -82,34 +77,28 @@ p.location {
     padding: 35px;
     margin: auto;
 }
-
 .modal header {
     justify-content: space-between;
     width: 100%;
 }
-
 .modal header img {
     cursor: pointer;
 }
-
 .modal header h2 {
     font-size: 64px;
     font-weight: normal;
     text-align: center;
 }
-
 form {
     display: flex;
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
 }
-
 form label {
     color: #312E2E;
     font-size: 36px;
 }
-
 form div {
     display: flex;
     flex-direction: column;
@@ -117,7 +106,6 @@ form div {
     align-items: self-start;
     margin-bottom: 26px;
 }
-
 form input {
     width: 100%;
     height: 68px;

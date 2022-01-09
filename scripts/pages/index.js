@@ -1,44 +1,45 @@
 async function getPhotographers() {
-    const photographers = fetch('/data/photographers.json')
+    const PHOTOGRAPHERS = fetch('/data/photographers.json')
         .then(response => response.json())
         .then(data => data.photographers)
         .catch(err => console.log('Error : ', err))
     ;
 
-    return photographers;
+    return PHOTOGRAPHERS;
 }
 
 async function displayArticle(photographers) {
-    const photographersSection = document.querySelector('.photographer_section');
+    const PHOTOGRAPHERS_SECTION = document.querySelector('.photographer_section');
 
     photographers.forEach((photographer) => {
         // eslint-disable-next-line no-undef
-        const model = photographerFactory(photographer);
-        const link = 'photographer.html?id=' + model.id;
-        const article = document.createElement('article');
-        const a = document.createElement('a');
-        a.setAttribute('href', link);
-        const img = document.createElement('img');
-        img.setAttribute('src', model.portrait);
-        img.setAttribute('alt', '');
-        const h2 = document.createElement('h2');
-        h2.textContent = model.name;
-        const plocation = document.createElement('p');
-        plocation.setAttribute('class', 'location');
-        plocation.textContent = model.city + ', ' + model.country;
-        const ptagline = document.createElement('p');
-        ptagline.setAttribute('class', 'tagline');
-        ptagline.textContent = model.tagline;
-        const pprice = document.createElement('p');
-        pprice.setAttribute('class', 'price');
-        pprice.textContent = model.price + '€/jour';
-        a.appendChild(img);
-        a.appendChild(h2);
-        article.appendChild(a);
-        article.appendChild(plocation);
-        article.appendChild(ptagline);
-        article.appendChild(pprice);
-        photographersSection.appendChild(article);
+        const PROFILE = photographerFactory(photographer);
+        const LINK = 'photographer.html?id=' + PROFILE.id;
+        const ARTICLE = document.createElement('article');
+        const A = document.createElement('a');
+        const IMG = document.createElement('img');
+        const H2 = document.createElement('h2');
+        const P_LOCATION = document.createElement('p');
+        const P_TAGLINE = document.createElement('p');
+        const P_PRICE = document.createElement('p');
+        
+        A.setAttribute('href', LINK);
+        IMG.setAttribute('src', PROFILE.portrait);
+        IMG.setAttribute('alt', '');
+        H2.textContent = PROFILE.name;
+        P_LOCATION.setAttribute('class', 'location');
+        P_LOCATION.textContent = PROFILE.city + ', ' + PROFILE.country;
+        P_TAGLINE.setAttribute('class', 'tagline');
+        P_TAGLINE.textContent = PROFILE.tagline;
+        P_PRICE.setAttribute('class', 'price');
+        P_PRICE.textContent = PROFILE.price + '€/jour';
+        A.appendChild(IMG);
+        A.appendChild(H2);
+        ARTICLE.appendChild(A);
+        ARTICLE.appendChild(P_LOCATION);
+        ARTICLE.appendChild(P_TAGLINE);
+        ARTICLE.appendChild(P_PRICE);
+        PHOTOGRAPHERS_SECTION.appendChild(ARTICLE);
     });
 }
 
@@ -49,9 +50,9 @@ function saveData(photographers) {
 }
 
 async function init() {
-    const photographers = await getPhotographers();
-    displayArticle(photographers);
-    saveData(photographers);
+    const PHOTOGRAPHERS = await getPhotographers();
+    displayArticle(PHOTOGRAPHERS);
+    saveData(PHOTOGRAPHERS);
 }
 
 init();
