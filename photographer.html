@@ -1,15 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+    <link 
+        rel="stylesheet" 
+        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" 
+        integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" 
+        crossorigin="anonymous"
+    />
     <title>Fisheye - photographe </title>
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" />
+      <a href="index.html">
+        <img src="assets/images/logo.png" class="logo" />
+      </a>
     </header>
     <main id="main">
       <section id="presentation">
@@ -23,7 +31,26 @@
           <img src="" alt="" id="presentation-img">
         </div>
       </section>
+      <!-- nav -->
+      <div id="sort-menu">
+        <p>Trier par :</p>
+        <button onclick="openSortMenu()" id="sort-menu-button"></button>
+        <ul class="hidden" id="sort-options">
+          <li><a onclick="generateSortLink('popularity')" class="sort-link">
+            Popularité
+            <i class="fas fa-chevron-up"></i>
+          </a></li>
+          <hr />
+          <li><a onclick="generateSortLink('date')" class="sort-link">Date</a></li>
+          <hr />
+          <li><a onclick="generateSortLink('title')" class="sort-link">Titre</a></li>
+        </ul>
+      </div>
+      <section id="gallery"></section>
     </main>
+    <footer>
+      
+    </footer>
     <div id="contact_modal">
 			<div class="modal">
 				<header>
@@ -41,6 +68,7 @@
 		</div>
     <script src="/scripts/utils/contactForm.js"></script>
     <script src="scripts/factories/photographerFactory.js"></script>
+    <script src="scripts/factories/mediaFactory.js"></script>
     <script src="/scripts/pages/photographer.js"></script>
   </body>
 </html>

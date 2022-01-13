@@ -15,6 +15,7 @@ p.location {
     height: 313px;
     margin: 43px 100px 0;
     padding: 0 50px;
+    border-radius: 5px;
 }
 #presentation-card {
     flex-grow: 1;
@@ -37,6 +38,7 @@ p.location {
     margin-top: 15px;
 }
 .contact_button {
+    font-family: "DM Sans", sans-serif;
     font-size: 20px;
     font-weight: bold;
     color: white;
@@ -52,6 +54,10 @@ p.location {
     border-radius: 5px;
     cursor: pointer;
 }
+.contact_button:hover {
+    background-color: #D3573C;
+    color: black;
+}
 #presentation-picture {
     text-align: right;
     width: 62%;
@@ -60,6 +66,141 @@ p.location {
     width: 200px;
     height: 200px;
     
+}
+
+/* sort menu */
+#sort-menu {
+    position: relative;
+    margin-left: 100px;
+    width: fit-content;
+    height: 90px;
+    padding-top: 10px;
+}
+#sort-menu p, 
+#sort-menu button {
+    display: inline-block;
+}
+#sort-menu button {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 170px;
+    height: 50px;
+    background-color: #901C1C;
+    font-family: "DM Sans", sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 0 10px;
+    cursor: pointer;
+}
+#sort-menu button:hover {
+    background-color: #D3573C;
+    color: black;
+}
+#sort-menu ul {
+    position: absolute;
+    background-color: #901C1C;
+    top: 0;
+    right: 0;
+    width: 170px;
+    margin: 10px 0 0;
+    padding: 0;
+    border-radius: 5px;
+}
+#sort-menu li {
+    height: 50px;
+    line-height: 50px;
+    list-style: none;
+}
+#sort-menu a {
+    color: white;
+    font-family: "DM Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    display: block;
+    width: 150px;
+    height: 100%;
+    padding: 0 10px;
+    text-decoration: none;
+}
+#sort-menu a:first-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#sort-menu a:hover {
+    background-color: #D3573C;
+    color: black;
+    cursor: pointer;
+}
+#sort-menu hr {
+    /*color: white;*/
+    background-color: white;
+    height: 2px;
+    border: none;
+}
+.hidden {
+    display: none;
+}
+
+/* gallery section */
+#gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+#gallery article {
+    margin-bottom: 65px;
+}
+#gallery img {
+    width: 350px;
+    height: 300px;
+    border-radius: 5px;
+}
+#gallery .legend, 
+#gallery .like-button {
+    color: #901C1C;
+    font-size: 24px;
+}
+#gallery .legend {
+    position: relative;
+    margin-top: 5px;
+}
+#gallery .like-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+#gallery .like-button:hover i {
+    color: #D3573C;
+}
+#gallery .title, 
+#gallery .like {
+    position: absolute;
+    top: 0;
+    margin-top: 0;
+}
+#gallery .title {  
+    left: 0;
+    width: 80%;
+    line-height: 28px;
+}
+#gallery .like {
+    right: 0;
+}
+#gallery .like-form {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    width: auto;
+}
+#gallery .blank {
+    width: 350px;
 }
 
 /* modal contact window */
@@ -111,4 +252,15 @@ form input {
     height: 68px;
     border: none;
     border-radius: 5px;
+}
+
+/* footer */
+footer {
+    background-color: #DB8876;
+    position: fixed;
+    right: 36px;
+    bottom: 0;
+    width: 376px;
+    height: 70px;
+    border-radius: 5px 5px 0 0;
 }
