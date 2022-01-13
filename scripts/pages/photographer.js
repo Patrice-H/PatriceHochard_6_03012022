@@ -17,32 +17,30 @@ function getPageUrl() {
     return URL;
 }
 
+function translate(sort) {
+    switch (sort) {
+    case 'popurality':
+        return 'Popularité';
+    case 'date':
+        return 'Date';
+    case 'title':
+        return 'Titre';
+    default:
+        return 'Popularité';
+    }
+}
+
 function getSortChoice() {
     const URL = location.href;
-    let params = '';
-    let sort;
+    let sortParams = 'popularity';
     if (URL.includes('&sorted-by=')) {
-        params = URL.split('&sorted-by=')[1];
-        if (params.includes('&')) {
-            params = params.split('&')[0];
+        sortParams = URL.split('&sorted-by=')[1];
+        if (sortParams.includes('&')) {
+            sortParams = sortParams.split('&')[0];
         }
     }
-    switch (params) {
-    case 'popurality':
-        sort = 'Popularité';
-        break;
-    case 'date':
-        sort = 'Date';
-        break;
-    case 'title':
-        sort = 'Titre';
-        break;
-    default:
-        sort = 'Popularité';
-        break;
-    }
 
-    return sort;
+    return sortParams;
 }
 
 function getPhotographerData(id) {
@@ -65,7 +63,6 @@ function displayPhotographerPresentation(data) {
 }
 
 async function getAllMedias() {
-    
     const MEDIAS = fetch('./data/photographers.json')
         .then(response => response.json())
         .then(data => data.media)
@@ -146,11 +143,11 @@ function sortMediasByTitle(mediasData) {
 
 function sortMedias(sortkey, mediasData) {
     switch (sortkey) {
-    case 'Popularité':
+    case 'popularity':
         return sortMediasByPopularity(mediasData);
-    case 'Date':
+    case 'date':
         return sortMediasByDate(mediasData);     
-    case 'Titre':
+    case 'title':
         return sortMediasByTitle(mediasData);     
     default:
         return sortMediasByPopularity(mediasData);
@@ -169,7 +166,8 @@ function displayPhotographerGalery(mediasData) {
         const LIKE = document.createElement('p');
         const LIKE_COUNT = document.createElement('span');
         const LIKE_FORM = document.createElement('form');
-        const LIKE_HIDDEN = document.createElement('input');
+        const ID_HIDDEN = document.createElement('input');
+        const SORT_HIDDEN = document.createElement('input');
         const LIKE_BUTTON = document.createElement('button');
         const LIKE_ICON = document.createElement('i');
 
@@ -184,9 +182,12 @@ function displayPhotographerGalery(mediasData) {
         LIKE_FORM.setAttribute('action', getPageUrl());
         LIKE_FORM.setAttribute('method', 'GET');
         LIKE_FORM.setAttribute('class', 'like-form');
-        LIKE_HIDDEN.setAttribute('type', 'hidden');
-        LIKE_HIDDEN.setAttribute('name', 'id');
-        LIKE_HIDDEN.setAttribute('value', media.photographerId);
+        ID_HIDDEN.setAttribute('type', 'hidden');
+        ID_HIDDEN.setAttribute('name', 'id');
+        ID_HIDDEN.setAttribute('value', media.photographerId);
+        SORT_HIDDEN.setAttribute('type', 'hidden');
+        SORT_HIDDEN.setAttribute('name', 'sorted-by');
+        SORT_HIDDEN.setAttribute('value', getSortChoice());
         LIKE_BUTTON.setAttribute('class', 'like-button');
         LIKE_BUTTON.setAttribute('name', 'like');
         LIKE_BUTTON.setAttribute('value', media.id);
@@ -194,7 +195,8 @@ function displayPhotographerGalery(mediasData) {
         LIKE_ICON.setAttribute('class', 'fas fa-heart');
 
         LIKE_BUTTON.appendChild(LIKE_ICON);
-        LIKE_FORM.appendChild(LIKE_HIDDEN);
+        LIKE_FORM.appendChild(ID_HIDDEN);
+        LIKE_FORM.appendChild(SORT_HIDDEN);
         LIKE_FORM.appendChild(LIKE_COUNT);
         LIKE_FORM.appendChild(LIKE_BUTTON);
         LEGEND.appendChild(TITLE);
@@ -207,8 +209,7 @@ function displayPhotographerGalery(mediasData) {
         const BLANK = document.createElement('article');
         BLANK.setAttribute('class', 'blank');
         GALLERY.appendChild(BLANK);
-    }
-    
+    }  
 }
 
 // eslint-disable-next-line no-unused-vars
@@ -258,16 +259,12 @@ function setLabelSortButton (sortkey) {
 async function main() {
     const PAGE_ID = getPhotographerPageId();
     const SORT = getSortChoice();
-    setLabelSortButton(SORT);
+    setLabelSortButton(translate(SORT));
     const MEDIAS = await getPhotographerMedias(PAGE_ID);
     const PHOTOGRAPHER_DATA = getPhotographerData(PAGE_ID);
     displayPhotographerPresentation(PHOTOGRAPHER_DATA);
     const SORTED_MEDIAS = sortMedias(SORT, MEDIAS);
-    displayPhotographerGalery(SORTED_MEDIAS);
-    
+    displayPhotographerGalery(SORTED_MEDIAS);   
 }
 
 main();
-
-
-
