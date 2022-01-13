@@ -4,6 +4,9 @@ h1#presentation-name,
 p.location {
     color: #D3573C;
 }
+#main {
+    padding-bottom: 70px;
+}
 
 /* presentation section */
 #presentation {
