@@ -66,7 +66,7 @@ function displayPhotographerPresentation(data) {
 
 async function getAllMedias() {
     
-    const MEDIAS = fetch('/data/photographers.json')
+    const MEDIAS = fetch('./data/photographers.json')
         .then(response => response.json())
         .then(data => data.media)
         .catch(err => console.log('Error : ', err))
