@@ -40,19 +40,21 @@
             Popularité
             <i class="fas fa-chevron-up"></i>
           </a></li>
-          <hr />
+          <li class="separator">──────────────</li>
           <li><a onclick="generateSortLink('date')" class="sort-link">Date</a></li>
-          <hr />
+          <li class="separator">──────────────</li>
           <li><a onclick="generateSortLink('title')" class="sort-link">Titre</a></li>
         </ul>
       </div>
-      <section id="gallery">
-        <h2 class="hidden">photo gallery</h2>
-      </section>
+      <div id="gallery"></div>
     </main>
-    <footer>
-      
-    </footer>
+    <div id="informations">
+      <p>
+        <span id="total-likes"></span>
+        <i class="fas fa-heart"></i>
+      </p>
+      <p id="photographer-price"></p>
+    </div>
     <div id="contact_modal">
 			<div class="modal">
 				<header>

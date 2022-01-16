@@ -45,20 +45,20 @@ p.location {
     font-size: 20px;
     font-weight: bold;
     color: white;
-    padding: 11px;
-    width: 170px;
-    height: 70px;
+    background-color: #901C1C;
     position: absolute;
     top: 137px;
     left: 50%;
+    width: 170px;
+    height: 70px;
+    padding: 11px;
     transform: translateX(-50%);
     border: none;
-    background-color: #901C1C;
     border-radius: 5px;
     cursor: pointer;
 }
 .contact_button:hover {
-    background-color: #D3573C;
+    background-color: #DB8876;
     color: black;
 }
 #presentation-picture {
@@ -67,16 +67,15 @@ p.location {
 }
 #presentation-img {
     width: 200px;
-    height: 200px;
-    
+    height: 200px;  
 }
 
 /* sort menu */
 #sort-menu {
     position: relative;
-    margin-left: 100px;
     width: fit-content;
     height: 90px;
+    margin-left: 100px;
     padding-top: 10px;
 }
 #sort-menu p, 
@@ -84,28 +83,28 @@ p.location {
     display: inline-block;
 }
 #sort-menu button {
+    font-family: "DM Sans", sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background-color: #901C1C;
     display: inline-flex;
     justify-content: space-between;
     align-items: center;
     width: 170px;
     height: 50px;
-    background-color: #901C1C;
-    font-family: "DM Sans", sans-serif;
-    font-size: 18px;
-    font-weight: bold;
-    color: white;
+    padding: 0 10px;
     border: none;
     border-radius: 5px;
-    padding: 0 10px;
     cursor: pointer;
 }
 #sort-menu button:hover {
-    background-color: #D3573C;
+    background-color: #DB8876;
     color: black;
 }
 #sort-menu ul {
-    position: absolute;
     background-color: #901C1C;
+    position: absolute;
     top: 0;
     right: 0;
     width: 170px;
@@ -119,10 +118,10 @@ p.location {
     list-style: none;
 }
 #sort-menu a {
-    color: white;
     font-family: "DM Sans", sans-serif;
     font-size: 18px;
     font-weight: 700;
+    color: white;
     display: block;
     width: 150px;
     height: 100%;
@@ -135,15 +134,15 @@ p.location {
     align-items: center;
 }
 #sort-menu a:hover {
-    background-color: #D3573C;
+    background-color: #DB8876;
     color: black;
     cursor: pointer;
 }
-#sort-menu hr {
-    /*color: white;*/
-    background-color: white;
-    height: 2px;
-    border: none;
+#sort-menu li.separator {
+    color: white;
+    height: 10px;
+    line-height: 10px;
+    margin-left: 5px;
 }
 .hidden {
     display: none;
@@ -167,8 +166,8 @@ p.location {
 }
 #gallery .legend, 
 #gallery .like-button {
-    color: #901C1C;
     font-size: 24px;
+    color: #901C1C;
 }
 #gallery .legend {
     position: relative;
@@ -197,8 +196,8 @@ p.location {
     right: 0;
 }
 #gallery .like-form {
-    display: inline-block;
     position: absolute;
+    display: inline-block;
     right: 0;
     width: auto;
 }
@@ -211,15 +210,15 @@ p.location {
     display: none;
 }
 .modal {
-    border-radius: 5px;
     background-color: #DB8876;
-    width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding: 35px;
+    width: 50%;
     margin: auto;
+    padding: 35px;
+    border-radius: 5px;
 }
 .modal header {
     justify-content: space-between;
@@ -235,13 +234,13 @@ p.location {
 }
 form {
     display: flex;
-    width: 100%;
     flex-direction: column;
     align-items: flex-start;
+    width: 100%;
 }
 form label {
-    color: #312E2E;
     font-size: 36px;
+    color: #312E2E;
 }
 form div {
     display: flex;
@@ -257,13 +256,19 @@ form input {
     border-radius: 5px;
 }
 
-/* footer */
-footer {
+/* div informations */
+#informations {
+    font-size: 24px;
+    font-weight: 500;
     background-color: #DB8876;
     position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     right: 36px;
     bottom: 0;
     width: 376px;
     height: 70px;
+    padding: 0 30px;
     border-radius: 5px 5px 0 0;
 }

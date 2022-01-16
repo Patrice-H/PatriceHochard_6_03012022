@@ -96,67 +96,52 @@ function getLikes(id, likes) {
     }
 }
 
-function sortMediasByPopularity(mediasData) {
+function sortMedias(sortkey, mediasdata) {
     let temp;
-    for (let i = mediasData.length - 1; i > 0; i--) {
+    let data;
+    let datanext;
+    for (let i = mediasdata.length - 1; i > 0; i--) {
         for (let j = 0; j < i; j++) {
-            if (mediasData[j].likes > mediasData[j + 1].likes) {
-                temp = mediasData[j];
-                mediasData[j] = mediasData[j + 1];
-                mediasData[j + 1] = temp;
+            switch (sortkey) {
+            case 'popularity':
+                data = mediasdata[j].likes;
+                datanext = mediasdata[j + 1].likes;
+                break;
+            case 'date':
+                data = mediasdata[j].date;
+                datanext = mediasdata[j + 1].date;
+                break;     
+            case 'title':
+                data = mediasdata[j].title;
+                datanext = mediasdata[j + 1].title;
+                break;     
+            default:
+                data = mediasdata[j].likes;
+                datanext = mediasdata[j + 1].likes;
+                break;
             }
+            if (sortkey === 'title') {
+                if (data > datanext) {
+                    temp = mediasdata[j];
+                    mediasdata[j] = mediasdata[j + 1];
+                    mediasdata[j + 1] = temp;
+                }  
+            } else {
+                if (data < datanext) {
+                    temp = mediasdata[j];
+                    mediasdata[j] = mediasdata[j + 1];
+                    mediasdata[j + 1] = temp;
+                }
+            } 
         }
     }
 
-    return mediasData;
-}
-
-function sortMediasByDate(mediasData) {
-    let temp;
-    for (let i = mediasData.length - 1; i > 0; i--) {
-        for (let j = 0; j < i; j++) {
-            if (mediasData[j].date > mediasData[j + 1].date) {
-                temp = mediasData[j];
-                mediasData[j] = mediasData[j + 1];
-                mediasData[j + 1] = temp;
-            }
-        }
-    }
-
-    return mediasData;
-}
-
-function sortMediasByTitle(mediasData) {
-    let temp;
-    for (let i = mediasData.length - 1; i > 0; i--) {
-        for (let j = 0; j < i; j++) {
-            if (mediasData[j].title > mediasData[j + 1].title) {
-                temp = mediasData[j];
-                mediasData[j] = mediasData[j + 1];
-                mediasData[j + 1] = temp;
-            }
-        }
-    }
-
-    return mediasData;
-}
-
-function sortMedias(sortkey, mediasData) {
-    switch (sortkey) {
-    case 'popularity':
-        return sortMediasByPopularity(mediasData);
-    case 'date':
-        return sortMediasByDate(mediasData);     
-    case 'title':
-        return sortMediasByTitle(mediasData);     
-    default:
-        return sortMediasByPopularity(mediasData);
-    }
+    return mediasdata;
 }
 
 function displayPhotographerGalery(mediasData) {
     const GALLERY = document.getElementById('gallery');
-    const MEDIAS_COUNT = mediasData.length;
+    const LOOP = 3 - (mediasData.length % 3);
     
     mediasData.forEach(media => {
         const ARTICLE = document.createElement('article');
@@ -205,11 +190,27 @@ function displayPhotographerGalery(mediasData) {
         ARTICLE.appendChild(LEGEND);
         GALLERY.appendChild(ARTICLE);
     });
-    if (MEDIAS_COUNT % 3 === 2) {
-        const BLANK = document.createElement('article');
-        BLANK.setAttribute('class', 'blank');
-        GALLERY.appendChild(BLANK);
-    }  
+    for (let i = 0; i < LOOP; i++) {
+        let blank = document.createElement('article');
+        blank.setAttribute('class', 'blank');
+        GALLERY.appendChild(blank);
+    } 
+}
+
+function getTotalLikes(medias) {
+    let sum = 0;
+    medias.forEach(media => {
+        sum = sum + media.likes;
+    });
+
+    return sum;
+}
+
+function displayFooter(photographer, medias) {
+    const TOTAL_LIKES = document.getElementById('total-likes');
+    const PHOTOGRAPHER_PRICE = document.getElementById('photographer-price');
+    TOTAL_LIKES.textContent = getTotalLikes(medias);
+    PHOTOGRAPHER_PRICE.textContent = photographer.price + ' € / jour';
 }
 
 // eslint-disable-next-line no-unused-vars
@@ -263,8 +264,9 @@ async function main() {
     const MEDIAS = await getPhotographerMedias(PAGE_ID);
     const PHOTOGRAPHER_DATA = getPhotographerData(PAGE_ID);
     displayPhotographerPresentation(PHOTOGRAPHER_DATA);
+    displayFooter(PHOTOGRAPHER_DATA, MEDIAS);
     const SORTED_MEDIAS = sortMedias(SORT, MEDIAS);
-    displayPhotographerGalery(SORTED_MEDIAS);   
+    displayPhotographerGalery(SORTED_MEDIAS);
 }
 
 main();
