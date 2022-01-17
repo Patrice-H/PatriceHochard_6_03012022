@@ -200,7 +200,7 @@ function displayPhotographerGalery(mediasData) {
 function getTotalLikes(medias) {
     let sum = 0;
     medias.forEach(media => {
-        sum = sum + media.likes;
+        sum = sum + parseInt(getLikes(media.id, media.likes));
     });
 
     return sum;
