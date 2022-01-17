@@ -12,6 +12,7 @@ header {
     justify-content: space-between;
     align-items: center;
     height: 90px;
+    margin-top: 20px;
 }
 
 h1 {
@@ -28,13 +29,12 @@ h1 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 70px;
-    margin-top: 100px;
+    margin-top: 90px;
 }
 
 .photographer_section article {
     justify-self: center;
     display: flex;
-    /*justify-content: center;*/
     align-items: center;
     flex-direction: column;
 }
@@ -71,4 +71,33 @@ h1 {
     color: #757575;
     font-size: 9px;
     margin-top: -5px;
+}
+
+@media screen and (max-width: 991px) {
+    .photographer_section {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+    .logo {
+        margin-left: 0;
+    }
+    h1 {
+        margin-right: 0;
+    }
+    .photographer_section {
+        gap: 70px 20px;
+        padding: 0 20px;
+    }
+}
+
+@media screen and (max-width: 479px) {
+    .photographer_section {
+        grid-template-columns: 1fr;
+    }
 }
