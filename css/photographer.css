@@ -162,6 +162,7 @@ p.location {
 #gallery img {
     width: 350px;
     height: 300px;
+    object-fit: cover;
     border-radius: 5px;
 }
 #gallery .legend, 
