@@ -179,7 +179,7 @@ p.location {
     cursor: pointer;
 }
 #gallery .like-button:hover i {
-    color: #D3573C;
+    color: #DB8876;
 }
 #gallery .title, 
 #gallery .like {
@@ -271,4 +271,77 @@ form input {
     height: 70px;
     padding: 0 30px;
     border-radius: 5px 5px 0 0;
+}
+
+@media screen and (max-width: 991px) {
+    #presentation {
+        margin: 43px 0 0;
+        padding: 0 100px;
+        border-radius: 0;
+        height: 413px;
+    }
+    #presentation-card {
+        margin-bottom: 100px;
+    }
+    .contact_button {
+        top: 280px;
+    }
+    #presentation-picture {
+        width: 50%;
+        margin-bottom: 100px;
+    }
+    #gallery {
+        justify-content: space-around;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    #presentation {
+        flex-direction: column;
+        justify-content: center;
+        height: auto;
+        margin-top: -20px;
+        padding: 20px 20px 60px;
+    }
+    #presentation-card {
+        text-align: center;
+        margin-bottom: 10px;
+        order: 1;
+    }
+    #presentation-name {
+        font-size: 48px;
+        line-height: 56px;
+        /*margin-top: 15px;*/
+    }
+    #presentation-location {
+        font-size: 16px;
+    }
+    #presentation-tagline {
+        font-size: 12px;
+        margin-top: 12px;
+    }
+    .contact_button {
+       position: relative;
+       top: auto;
+       left: auto;
+       transform: none;
+       margin: auto;
+       order: 3;
+    }
+    #presentation-picture {
+        width: fit-content;
+        text-align: center;
+        margin-bottom: 25px;
+        order: 2;
+    }
+    #sort-menu {
+        margin: auto;
+    }
+    #informations {
+        width: 325px;
+        right: 50%;
+        transform: translateX(50%);
+    }
 }
