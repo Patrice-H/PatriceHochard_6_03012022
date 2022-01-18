@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="assets/favicon.png">
@@ -13,6 +12,7 @@
         crossorigin="anonymous"
     />
     <title>Fisheye - photographe </title>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <header>
@@ -58,21 +58,28 @@
     <div id="contact_modal">
 			<div class="modal">
 				<header>
-          <h2>Contactez-moi</h2>
+          <h2>Contactez-moi<br /><span id="modal-contact-name"></span></h2>
           <img src="assets/icons/close.svg" onclick="closeModal()" alt="close button" />
         </header>
-				<form>
+				<form action="photographer.html" method="get">
 					<div>
-						<label>Prénom</label>
-						<input />
+            <input type="hidden" name="id" id="modal-id" />
+						<label for="firstname">Prénom</label>
+						<input type="text" name="firstname" id="firstname" required />
+            <label for="lastname">Nom</label>
+						<input type="text" name="lastname" id="lastname" required />
+            <label for="email">Email</label>
+						<input type="text" name="email" id="email" required />
+            <label for="message">Votre message</label>
+            <textarea name="message" id="message"></textarea>
 					</div>
           <button class="contact_button">Envoyer</button>
 				</form>
 			</div>
 		</div>
-    <script src="scripts/utils/contactForm.js"></script>
     <script src="scripts/factories/photographerFactory.js"></script>
     <script src="scripts/factories/mediaFactory.js"></script>
     <script src="scripts/pages/photographer.js"></script>
+    <script src="scripts/utils/contactForm.js"></script>
   </body>
 </html>
