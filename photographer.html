@@ -77,9 +77,19 @@
 				</form>
 			</div>
 		</div>
+    <section id="lightbox">
+      <div id="lightbox-content">
+        <img src="assets/icons/close-color.svg" onclick="closeLightBox()" alt="close button" class="close-btn" />
+        <a onclick="previousMedia()" id="previous"><i class="fas fa-chevron-left"></i></a>
+        <a onclick="nextMedia()" id="next"><i class="fas fa-chevron-right"></i></a>
+        <div id="lightbox-media"></div>
+      </div>
+      
+    </section>
     <script src="scripts/factories/photographerFactory.js"></script>
     <script src="scripts/factories/mediaFactory.js"></script>
     <script src="scripts/pages/photographer.js"></script>
     <script src="scripts/utils/contactForm.js"></script>
+    <script src="scripts/utils/lightbox.js"></script>
   </body>
 </html>

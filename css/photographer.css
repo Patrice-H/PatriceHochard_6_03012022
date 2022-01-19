@@ -232,7 +232,6 @@ p.location {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /*justify-content: space-between;*/
     box-sizing: border-box;
     height: 900px;
     width: 50%;
@@ -294,6 +293,54 @@ form textarea {
     resize: none;
     border: none;
     border-radius: 5px;
+}
+
+/* lightbox */
+#lightbox {
+    background-color: white;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+}
+#lightbox-content {
+    width: 80%;
+    position: relative;
+    height: 85%;
+}
+#lightbox i {
+    font-size: 48px;
+    color: #901C1C;
+}
+#lightbox .close-btn {
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+}
+#lightbox a {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+#next {
+    right: 0;
+}
+#lightbox-media {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 100%;
+}
+#lightbox-media img,
+#lightbox-media video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 /* div informations */
@@ -416,6 +463,7 @@ form textarea {
         right: 50%;
         transform: translateX(50%);
     }
+
 
     @media screen and (max-width: 479px) {
         .modal header h2 {

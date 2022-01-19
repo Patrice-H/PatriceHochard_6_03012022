@@ -145,6 +145,7 @@ function displayPhotographerGalery(mediasData) {
     
     mediasData.forEach(media => {
         const ARTICLE = document.createElement('article');
+        const LINK = document.createElement('a');
         const IMG = document.createElement('img');
         const LEGEND = document.createElement('div');
         const TITLE = document.createElement('p');
@@ -156,6 +157,7 @@ function displayPhotographerGalery(mediasData) {
         const LIKE_BUTTON = document.createElement('button');
         const LIKE_ICON = document.createElement('i');
 
+        LINK.setAttribute('onclick', 'openLightBox(' + media.id + ')');
         IMG.setAttribute('src', media.image);
         IMG.setAttribute('alt', '');
         LEGEND.setAttribute('class', 'legend');
@@ -179,6 +181,7 @@ function displayPhotographerGalery(mediasData) {
         LIKE_BUTTON.setAttribute('onclick', 'addLike(' + media.id + ', ' + media.likes + ')');
         LIKE_ICON.setAttribute('class', 'fas fa-heart');
 
+        LINK.appendChild(IMG);
         LIKE_BUTTON.appendChild(LIKE_ICON);
         LIKE_FORM.appendChild(ID_HIDDEN);
         LIKE_FORM.appendChild(SORT_HIDDEN);
@@ -186,7 +189,7 @@ function displayPhotographerGalery(mediasData) {
         LIKE_FORM.appendChild(LIKE_BUTTON);
         LEGEND.appendChild(TITLE);
         LEGEND.appendChild(LIKE_FORM);
-        ARTICLE.appendChild(IMG);
+        ARTICLE.appendChild(LINK);
         ARTICLE.appendChild(LEGEND);
         GALLERY.appendChild(ARTICLE);
     });
@@ -261,12 +264,17 @@ async function main() {
     const PAGE_ID = getPhotographerPageId();
     const SORT = getSortChoice();
     setLabelSortButton(translate(SORT));
-    const MEDIAS = await getPhotographerMedias(PAGE_ID);
+    //const MEDIAS = await getPhotographerMedias(PAGE_ID);
+    medias = await getPhotographerMedias(PAGE_ID);
     const PHOTOGRAPHER_DATA = getPhotographerData(PAGE_ID);
     displayPhotographerPresentation(PHOTOGRAPHER_DATA);
-    displayFooter(PHOTOGRAPHER_DATA, MEDIAS);
-    const SORTED_MEDIAS = sortMedias(SORT, MEDIAS);
+    //displayFooter(PHOTOGRAPHER_DATA, MEDIAS);
+    displayFooter(PHOTOGRAPHER_DATA, medias);
+    const SORTED_MEDIAS = sortMedias(SORT, medias);
+    console.log(medias);
     displayPhotographerGalery(SORTED_MEDIAS);
 }
+
+let medias;
 
 main();
