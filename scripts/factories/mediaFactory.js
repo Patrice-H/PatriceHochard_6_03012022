@@ -31,6 +31,7 @@ function mediaFactory(data) {
         date: data.date,
         price: data.price,
         image: setImagePath(),
-        video: setVideoPath()
+        video: setVideoPath(),
+        description: data.description
     };
 }
