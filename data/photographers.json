@@ -61,6 +61,7 @@
 			"photographerId": 82,
 			"title": "Fashion Yellow Beach",
 			"image": "Fashion_Yellow_Beach.jpg",
+			"description": "Image of a fashion model wearing yellow shirt and pants in front of a basketball court at the beach",
 			"likes": 62,
 			"date": "2011-12-08",
 			"price": 55
@@ -70,6 +71,7 @@
 			"photographerId": 82,
 			"title": "Fashion Urban Jungle",
 			"image": "Fashion_Urban_Jungle.jpg",
+			"description": "Image of a fashion model wearing patterned shirt and pants on a bridge in town",
 			"likes": 11,
 			"date": "2011-11-06",
 			"price": 55
@@ -79,6 +81,7 @@
 			"photographerId": 82,
 			"title": "Fashion Pattern on a Pattern",
 			"image": "Fashion_Pattern_on_Pattern.jpg",
+			"description": "Image of fashion model wearing colorful railing dress in front of black and white checkered wall",
 			"likes": 72,
 			"date": "2013-08-12",
 			"price": 55
@@ -88,6 +91,7 @@
 			"photographerId": 82,
 			"title": "Wedding Gazebo",
 			"image": "Event_WeddingGazebo.jpg",
+			"description": "Image showing decorating a wedding gazebo and guest chairs",
 			"likes": 69,
 			"date": "2018-02-22",
 			"price": 55
@@ -97,6 +101,7 @@
 			"photographerId": 82,
 			"title": "Sparkles",
 			"image": "Event_Sparklers.jpg",
+			"description": "Wedding reception image with guests lighting flickering candles",
 			"likes": 2,
 			"date": "2020-05-25",
 			"price": 55
@@ -106,6 +111,7 @@
 			"photographerId": 82,
 			"title": "18th Anniversary",
 			"image": "Event_18thAnniversary.jpg",
+			"description": "Image showing the setting of a table during the anniversary commemoration",
 			"likes": 33,
 			"date": "2019-06-12",
 			"price": 55
@@ -115,6 +121,7 @@
 			"photographerId": 82,
 			"title": "Wooden sculpture of a horse",
 			"video": "Art_Wooden_Horse_Sculpture.mp4",
+			"description": "Video showing details from different angles of a wooden sculpture of a horse",
 			"likes": 24,
 			"date": "2011-12-08",
 			"price": 100
@@ -124,6 +131,7 @@
 			"photographerId": 82,
 			"title": "Triangle Man",
 			"image": "Art_Triangle_Man.jpg",
+			"description": "Image of a street graph painted on a door showing a man's body and a white triangle",
 			"likes": 88,
 			"date": "2007-05-07",
 			"price": 55
@@ -133,6 +141,7 @@
 			"photographerId": 82,
 			"title": "Purple Tunnel",
 			"image": "Art_Purple_light.jpg",
+			"description": "Image of graffiti in a tunnel under purple light",
 			"likes": 24,
 			"date": "2018-05-05",
 			"price": 55
@@ -142,6 +151,7 @@
 			"photographerId": 82,
 			"title": "Art Mine",
 			"image": "Art_Mine.jpg",
+			"description": "Image of a street graph representing red and blue birds",
 			"likes": 75,
 			"date": "2019-11-25",
 			"price": 55
@@ -152,6 +162,7 @@
 			"photographerId": 925,
 			"title": "8 Rows",
 			"image": "Sport_2000_with_8.jpg",
+			"description": "Image of athlete practicing rowing",
 			"likes": 52,
 			"date": "2013-02-30",
 			"price": 70
@@ -161,6 +172,7 @@
 			"photographerId": 925,
 			"title": "Fashion Wings",
 			"image": "Fashion_Wings.jpg",
+			"description": "Body expression image of fashion models",
 			"likes": 58,
 			"date": "2018-07-17",
 			"price": 70
@@ -170,6 +182,7 @@
 			"photographerId": 925,
 			"title": "Melody Red on Stripes",
 			"image": "Fashion_Melody_Red_on_Stripes.jpg",
+			"description": "Image of fashion model walking down stairs in red dress",
 			"likes": 11,
 			"date": "2019-08-12",
 			"price": 70
@@ -179,6 +192,7 @@
 			"photographerId": 925,
 			"title": "Venture Conference",
 			"image": "Event_VentureConference.jpg",
+			"description": "Image of a work conference showing a speaker in front of a whiteboard full of post it notes",
 			"likes": 2,
 			"date": "2019-01-02",
 			"price": 70
@@ -188,6 +202,7 @@
 			"photographerId": 925,
 			"title": "Product Pitch",
 			"image": "Event_ProductPitch.jpg",
+			"description": "Image showing a speaker presenting a product to an audience",
 			"likes": 3,
 			"date": "2019-05-20",
 			"price": 70
@@ -197,6 +212,7 @@
 			"photographerId": 925,
 			"title": "Musical Festival Keyboard",
 			"image": "Event_KeyboardCheck.jpg",
+			"description": "Black and white image of a musician in front of his keyboard at a music festival",
 			"likes": 52,
 			"date": "2019-07-18",
 			"price": 70
@@ -206,6 +222,7 @@
 			"photographerId": 925,
 			"title": "Musical Festival Singer",
 			"image": "Event_Emcee.jpg",
+			"description": "Onstage image of a singer in the spotlight at a music festival",
 			"likes": 23,
 			"date": "2018-02-22",
 			"price": 70
@@ -215,6 +232,7 @@
 			"photographerId": 925,
 			"title": "Animal Majesty",
 			"image": "Animals_Majesty.jpg",
+			"description": "Image of a young deer in a meadow",
 			"likes": 52,
 			"date": "2017-03-13",
 			"price": 70
@@ -224,6 +242,7 @@
 			"photographerId": 925,
 			"title": "Cute puppy on sunset",
 			"video": "Animals_Puppiness.mp4",
+			"description": "Video of a young border collie puppy playing on the sand of a beach",
 			"likes": 52,
 			"date": "2016-06-12",
 			"price": 70
@@ -232,6 +251,7 @@
 			"id": 394583434,
 			"photographerId": 527,
 			"title": "Rocky mountains from the air",
+			"description": "Video showing the crest of a mountain seen from the air",
 			"video": "Travel_Rock_Mountains.mp4",
 			"likes": 23,
 			"date": "2017-03-18",
@@ -242,6 +262,7 @@
 			"photographerId": 527,
 			"title": "Outdoor Baths",
 			"image": "Travel_Outdoor_Baths.jpg",
+			"description": "Image showing bathers in a hot spring",
 			"likes": 101,
 			"date": "2017-04-03",
 			"price": 45
@@ -251,6 +272,7 @@
 			"photographerId": 527,
 			"title": "Road into the Hill",
 			"image": "Travel_Road_into_Hill.jpg",
+			"description": "Image showing the winding path of a road in the countryside",
 			"likes": 99,
 			"date": "2018-04-30",
 			"price": 45
@@ -260,6 +282,7 @@
 			"photographerId": 527,
 			"title": "Bridge into the Forest",
 			"image": "Travel_Bridge_into_Forest.jpg",
+			"description": "Image showing a pedestrian bridge in a forest",
 			"likes": 34,
 			"date": "2016-04-05",
 			"price": 45
@@ -269,6 +292,7 @@
 			"photographerId": 527,
 			"title": "Boat Wonderer",
 			"image": "Travel_Boat_Wanderer.jpg",
+			"description": "Image showing the front of a boat on a mountain lake and landscape in the background",
 			"likes": 23,
 			"date": "2017-03-18",
 			"price": 45
@@ -278,6 +302,7 @@
 			"photographerId": 527,
 			"title": "Portrait Sunkiss",
 			"image": "Portrait_Sunkissed.jpg",
+			"description": "Portrait image of a redhead woman wearing makeup with lipstick",
 			"likes": 66,
 			"date": "2018-05-24",
 			"price": 45
@@ -287,6 +312,7 @@
 			"photographerId": 527,
 			"title": "Shaw Potrait",
 			"image": "Portrait_Shaw.jpg",
+			"description": "Black and white portrait image of a man three quarter view",
 			"likes": 52,
 			"date": "2017-04-21",
 			"price": 45
@@ -296,6 +322,7 @@
 			"photographerId": 527,
 			"title": "Alexandra",
 			"image": "Portrait_Alexandra.jpg",
+			"description": "Black and white portrait image of a black woman with white hair",
 			"likes": 95,
 			"date": "2018-11-02",
 			"price": 45
@@ -305,6 +332,7 @@
 			"photographerId": 527,
 			"title": "Afternoon Break",
 			"image": "Portrait_AfternoonBreak.jpg",
+			"description": "Black and white portrait image of a man smoking a cigarette",
 			"likes": 25,
 			"date": "2019-01-02",
 			"price": 45
@@ -315,6 +343,7 @@
 			"photographerId": 243,
 			"title": "Lonesome",
 			"image": "Travel_Lonesome.jpg",
+			"description": "Image of a lonely man on a rock in the middle of a mountainous landscape",
 			"likes": 88,
 			"date": "2019-02-03",
 			"price": 45
@@ -324,6 +353,7 @@
 			"photographerId": 243,
 			"title": "Hillside Color",
 			"image": "Travel_HillsideColor.jpg",
+			"description": "Image of a village with a colorful house facade, built on a rock by the sea",
 			"likes": 85,
 			"date": "2019-04-03",
 			"price": 45
@@ -333,6 +363,7 @@
 			"photographerId": 243,
 			"title": "Wednesday Portrait",
 			"image": "Portrait_Wednesday.jpg",
+			"description": "Black and white portrait of a child making a face",
 			"likes": 34,
 			"date": "2019-04-07",
 			"price": 45
@@ -342,6 +373,7 @@
 			"photographerId": 243,
 			"title": "Nora Portrait",
 			"image": "Portrait_Nora.jpg",
+			"description": "Portrait image of a black woman wearing glasses in a cafe",
 			"likes": 63,
 			"date": "2019-04-07",
 			"price": 45
@@ -351,6 +383,7 @@
 			"photographerId": 243,
 			"title": "Raw Black Portrait",
 			"image": "Portrait_Background.jpg",
+			"description": "Black and white portrait of a woman from low angle",
 			"likes": 55,
 			"date": "2019-06-20",
 			"price": 45
@@ -360,6 +393,7 @@
 			"photographerId": 243,
 			"title": "Seaside Wedding",
 			"image": "Event_SeasideWedding.jpg",
+			"description": "Image of setting a table by the sea",
 			"likes": 25,
 			"date": "2019-06-21",
 			"price": 45
@@ -369,6 +403,7 @@
 			"photographerId": 243,
 			"title": "Boulder Wedding",
 			"image": "Event_PintoWedding.jpg",
+			"description": "Image of a married couple in a natural rock setting",
 			"likes": 52,
 			"date": "2019-06-25",
 			"price": 45
@@ -378,6 +413,7 @@
 			"photographerId": 243,
 			"title": "Benevides Wedding",
 			"image": "Event_BenevidesWedding.jpg",
+			"description": "Image of a married couple after the ceremony",
 			"likes": 77,
 			"date": "2019-06-28",
 			"price": 45
@@ -387,6 +423,7 @@
 			"photographerId": 243,
 			"title": "Wild horses in the mountains",
 			"video": "Animals_Wild_Horses_in_the_mountains.mp4",
+			"description": "Video showing a herd of wild horses in the mountains",
 			"likes": 142,
 			"date": "2019-08-23",
 			"price": 60
@@ -396,6 +433,7 @@
 			"photographerId": 243,
 			"title": "Rainbow Bird",
 			"image": "Animals_Rainbow.jpg",
+			"description": "Image of a Lilac-breasted Roller on a branch",
 			"likes": 59,
 			"date": "2019-07-02",
 			"price": 60
@@ -406,6 +444,7 @@
 			"photographerId": 195,
 			"title": "Japanese Tower, Kyoto",
 			"image": "Travel_Tower.jpg",
+			"description": "Image of a street in Kyoto, Japan, with a tower in background",
 			"likes": 25,
 			"date": "2019-04-03",
 			"price": 60
@@ -413,8 +452,9 @@
 		{
 			"id": 2523434,
 			"photographerId": 195,
-			"title": "Senset on Canals, Venice",
+			"title": "Sunset on Canals, Venice",
 			"image": "Travel_SunsetonCanals.jpg",
+			"description": "Image of boats navigating the canals of Venice at sunset",
 			"likes": 53,
 			"date": "2019-05-06",
 			"price": 60
@@ -424,6 +464,7 @@
 			"photographerId": 195,
 			"title": "Mountain and Lake",
 			"image": "Travel_OpenMountain.jpg",
+			"description": "Image of a mountain and its reflection in the water of a lake",
 			"likes": 33,
 			"date": "2019-05-12",
 			"price": 60
@@ -433,6 +474,7 @@
 			"photographerId": 195,
 			"title": "City Bike and Stair, Paris",
 			"image": "Travel_Bike_and_Stair.jpg",
+			"description": "Image of a bicycle leaning against a staircase in a cobbled street in Paris, France",
 			"likes": 53,
 			"date": "2019-06-20",
 			"price": 60
@@ -442,6 +484,7 @@
 			"photographerId": 195,
 			"title": "Adventure Door, India",
 			"image": "Travel_Adventure_Door.jpg",
+			"description": "Image showing the decorative style of a door with the city in the background, India",
 			"likes": 63,
 			"date": "2019-06-26",
 			"price": 60
@@ -451,6 +494,7 @@
 			"photographerId": 195,
 			"title": "Contrast, St Petersburg",
 			"image": "Architecture_Contrast.jpg",
+			"description": "Image of St petersburg monument, Russia, with the sky in the background",
 			"likes": 52,
 			"date": "2019-06-30",
 			"price": 60
@@ -460,6 +504,7 @@
 			"photographerId": 195,
 			"title": "On a Hill, Tibet",
 			"image": "Architecture_On_a_hill.jpg",
+			"description": "Image of a village built on a hill in Tibet, China, with a river below and mountains in the background",
 			"likes": 63,
 			"date": "2019-07-20",
 			"price": 60
@@ -469,6 +514,7 @@
 			"photographerId": 195,
 			"title": "Leaning Tower, Pisa",
 			"image": "Architecture_Dome.jpg",
+			"description": "Image of the tower of Pisa, Italy, seen from below with the sky in the background",
 			"likes": 88,
 			"date": "2020-01-05",
 			"price": 60
@@ -478,6 +524,7 @@
 			"photographerId": 195,
 			"title": "Drone shot of Buenos Aires highways",
 			"video": "Architecture_coverr_circle_empty_highway_in_buenos_aires_587740985637.mp4",
+			"description": "Video showing a freeway interchange and a freeway crossing Buenos Aires",
 			"likes": 57,
 			"date": "2020-01-20",
 			"price": 65
@@ -487,6 +534,7 @@
 			"photographerId": 195,
 			"title": "Corner Building and Blue Sky",
 			"image": "Architecture_Corner_Room.jpg",
+			"description": "Image of a corner building with the sky in the background",
 			"likes": 54,
 			"date": "2020-05-05",
 			"price": 60
@@ -496,6 +544,7 @@
 			"photographerId": 930,
 			"title": "Tricks in the air",
 			"video": "Sport_Tricks_in_the_air.mp4",
+			"description": "Video showing the training of an indoor gymnast",
 			"likes": 150,
 			"date": "2018-02-30",
 			"price": 70
@@ -505,6 +554,7 @@
 			"photographerId": 930,
 			"title": "Climber",
 			"image": "Sport_Next_Hold.jpg",
+			"description": "Image showing the ascent of a rock climber",
 			"likes": 101,
 			"date": "2018-03-05",
 			"price": 65
@@ -514,6 +564,7 @@
 			"photographerId": 930,
 			"title": "Surfer",
 			"image": "sport_water_tunnel.jpg",
+			"description": "Image showing a surfer in a water tunnel",
 			"likes": 103,
 			"date": "2018-03-10",
 			"price": 70
@@ -523,6 +574,7 @@
 			"photographerId": 930,
 			"title": "Skier",
 			"image": "Sport_Sky_Cross.jpg",
+			"description": "Image of a skier in full jump with the blue sky in the background",
 			"likes": 77,
 			"date": "2018-04-16",
 			"price": 50
@@ -532,6 +584,7 @@
 			"photographerId": 930,
 			"title": "Race End",
 			"image": "Sport_Race_End.jpg",
+			"description": "Image of sportswomen during a running competition",
 			"likes": 88,
 			"date": "2018-04-22",
 			"price": 65
@@ -541,6 +594,7 @@
 			"photographerId": 930,
 			"title": "Jump!",
 			"image": "Sport_Jump.jpg",
+			"description": "Jumping image of a shirtless skatboader in a skate park",
 			"likes": 95,
 			"date": "2018-04-27",
 			"price": 70
@@ -550,6 +604,7 @@
 			"photographerId": 930,
 			"title": "White Light",
 			"image": "Architecture_White_Light.jpg",
+			"description": "Interior architecture image of a white building",
 			"likes": 52,
 			"date": "2018-05-03",
 			"price": 75
@@ -559,6 +614,7 @@
 			"photographerId": 930,
 			"title": "Water on Modern Building",
 			"image": "Architecture_Water_on_Modern.jpg",
+			"description": "Exterior architectural image of a modern building incorporating a body of water",
 			"likes": 55,
 			"date": "2018-05-10",
 			"price": 72
@@ -568,6 +624,7 @@
 			"photographerId": 930,
 			"title": "Horseshoe",
 			"image": "Architecture_Horseshoe.jpg",
+			"description": "Exterior architectural image of a modern building depicting a horseshoe",
 			"likes": 85,
 			"date": "2018-05-15",
 			"price": 71
@@ -577,6 +634,7 @@
 			"photographerId": 930,
 			"title": "Cross Bar",
 			"image": "Architecture_Cross_Bar.jpg",
+			"description": "Graphic architecture image of the crossing of two modern buildings",
 			"likes": 66,
 			"date": "2018-05-20",
 			"price": 58
@@ -586,6 +644,7 @@
 			"photographerId": 930,
 			"title": "Connected Curves",
 			"image": "Architecture_Connected_Curves.jpg",
+			"description": "Graphic architectural image of the curves of a modern building with the blue sky in the background",
 			"likes": 79,
 			"date": "2018-05-21",
 			"price": 80
