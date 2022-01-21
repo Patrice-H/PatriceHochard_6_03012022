@@ -15,47 +15,51 @@
     <link href="css/style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <header>
-      <a href="index.html">
-        <img src="assets/images/logo.png" class="logo" alt="logotype" />
+    <header id="header">
+      <a href="index.html" title="Home page">
+        <img src="assets/images/logo.png" class="logo" alt="Fisheye home page" />
       </a>
     </header>
     <main id="main">
-      <section id="presentation">
+      <!-- PRESENTATION SECTION -->
+      <section id="presentation" aria-label="photographer presentation">
         <div id="presentation-card">
           <h1 id="presentation-name">photographer name</h1><br />
           <p class="location" id="presentation-location"></p><br />
           <p class="tagline" id="presentation-tagline"></p>
         </div>
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <button class="contact_button" onclick="displayModal()" title="Contact me">Contactez-moi</button>
         <div id="presentation-picture">
-          <img src="#" alt="" id="presentation-img">
+          <img src="#" alt="profile photo" id="presentation-img">
         </div>
       </section>
+      <!-- DROP DOWN -->
       <div id="sort-menu">
         <p>Trier par :</p>
-        <button onclick="openSortMenu()" id="sort-menu-button"></button>
-        <ul class="hidden" id="sort-options">
-          <li><a onclick="generateSortLink('popularity')" class="sort-link">
+        <button onclick="openSortMenu()" aria-haspopup="listbox" id="sort-menu-button" title="Order by"></button>
+        <ul class="hidden" id="sort-options" role="listbox">
+          <li><a onclick="generateSortLink('popularity')" class="sort-link" role="option" tabindex="0">
             Popularité
-            <i class="fas fa-chevron-up"></i>
+            <span class="fas fa-chevron-up"></span>
           </a></li>
+          <li class="separator" role="option">──────────────</li>
+          <li><a onclick="generateSortLink('date')" class="sort-link" role="option" tabindex="0">Date</a></li>
           <li class="separator">──────────────</li>
-          <li><a onclick="generateSortLink('date')" class="sort-link">Date</a></li>
-          <li class="separator">──────────────</li>
-          <li><a onclick="generateSortLink('title')" class="sort-link">Titre</a></li>
+          <li><a onclick="generateSortLink('title')" class="sort-link" role="option" tabindex="0">Titre</a></li>
         </ul>
       </div>
+      <!-- GALLERY -->
       <div id="gallery"></div>
+      <aside id="informations">
+        <p>
+          <span id="total-likes"></span>
+          <span class="fas fa-heart" title="Photographer likes"></span>
+        </p>
+        <p id="photographer-price"></p>
+      </aside>
     </main>
-    <div id="informations">
-      <p>
-        <span id="total-likes"></span>
-        <i class="fas fa-heart"></i>
-      </p>
-      <p id="photographer-price"></p>
-    </div>
-    <div id="contact_modal">
+    <!-- CONTACT MODAL -->
+    <div id="contact_modal" role="dialog" aria-modal="true" tabindex="-1">
 			<div class="modal">
 				<header>
           <h2>Contactez-moi<br /><span id="modal-contact-name"></span></h2>
@@ -64,27 +68,34 @@
 				<form action="photographer.html" method="get">
 					<div>
             <input type="hidden" name="id" id="modal-id" />
-						<label for="firstname">Prénom</label>
-						<input type="text" name="firstname" id="firstname" required />
-            <label for="lastname">Nom</label>
-						<input type="text" name="lastname" id="lastname" required />
-            <label for="email">Email</label>
-						<input type="text" name="email" id="email" required />
-            <label for="message">Votre message</label>
-            <textarea name="message" id="message"></textarea>
+						<label for="firstname" id="firstname-label">Prénom</label>
+            <input type="text" name="firstname" id="firstname" aria-labelledby="firstname-label" required />
+            <label for="lastname" id="lastname-label">Nom</label>
+            <input type="text" name="lastname" id="lastname" aria-labelledby="lastname-label" required />
+            <label for="email" id="email-label">Email</label>
+            <input type="text" name="email" id="email" aria-labelledby="email-label" required />
+            <label for="message" id="message-label">Votre message</label>
+            <textarea name="message" id="message" aria-labelledby="message-label"></textarea>
 					</div>
-          <button class="contact_button">Envoyer</button>
+          <button type="submit" class="contact_button">Envoyer</button>
 				</form>
 			</div>
 		</div>
-    <section id="lightbox">
+    <!-- LIGHTBOX -->
+    <section id="lightbox" aria-label="image closeup view" role="dialog" aria-modal="true">
       <div id="lightbox-content">
-        <img src="assets/icons/close-color.svg" onclick="closeLightBox()" alt="close button" class="close-btn" />
-        <a onclick="previousMedia()" id="previous"><i class="fas fa-chevron-left"></i></a>
-        <a onclick="nextMedia()" id="next"><i class="fas fa-chevron-right"></i></a>
-        <div id="lightbox-media"></div>
+        <img src="assets/icons/close-light-color.svg" onclick="closeLightBox()" alt="Close dialog" class="close-btn" title="Close dialog" role="button" />
+        <img src="assets/icons/close-dark-color.svg" onclick="closeLightBox()" alt="Close dialog" class="close-btn" id="close-box" tabindex="0"/>
+        <a onclick="previousMedia()" class="lightbox-btn" id="previous" title="Previous image" role="button" tabindex="0">
+          <span class="fas fa-chevron-left"></span>
+        </a>
+        <div id="lightbox-media">
+          <h2 id="lightbox-title">media title</h2>
+        </div>
+        <a onclick="nextMedia()" id="next" title="Next image" role="button" tabindex="0">
+          <span class="fas fa-chevron-right"></span>
+        </a>
       </div>
-      
     </section>
     <script src="scripts/factories/photographerFactory.js"></script>
     <script src="scripts/factories/mediaFactory.js"></script>

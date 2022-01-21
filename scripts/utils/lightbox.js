@@ -78,16 +78,17 @@ function isMediaVideo(id) {
 }
 
 function displayContent(id) {
+    mediaId = id;
     const MEDIA_CONTENT = document.getElementById('lightbox-media');
     const PREVIOUS = document.getElementById('previous');
     const NEXT = document.getElementById('next');
-    const PREVIOUS_ID = getPreviousId(id);
-    const NEXT_ID = getNextId(id);
+    const TITLE = document.getElementById('lightbox-title');
     let mediaKind;
     PREVIOUS.removeAttribute('onclick');
     NEXT.removeAttribute('onclick');
-    PREVIOUS.setAttribute('onclick', 'displayContent(' + PREVIOUS_ID + ')');
-    NEXT.setAttribute('onclick', 'displayContent(' + NEXT_ID + ')');
+    PREVIOUS.setAttribute('onclick', 'displayContent(' + getPreviousId(id) + ')');
+    NEXT.setAttribute('onclick', 'displayContent(' + getNextId(id) + ')');
+    TITLE.textContent = getMediaTitle(id);
     while (MEDIA_CONTENT.hasChildNodes()) {
         MEDIA_CONTENT.removeChild(MEDIA_CONTENT.firstChild);
     }
@@ -104,15 +105,67 @@ function displayContent(id) {
         mediaKind.setAttribute('alt', '');
     }
     MEDIA_CONTENT.appendChild(mediaKind);
+    MEDIA_CONTENT.appendChild(TITLE);
 }
 
 function closeLightBox() {
     const LIGHTBOX = document.getElementById('lightbox');
+    const HEADER = document.getElementById('header');
+    const MAIN = document.getElementById('main');
+    HEADER.setAttribute('aria-hidden', false);
+    MAIN.setAttribute('aria-hidden', false);
     LIGHTBOX.style.display = 'none';
+    LIGHTBOX.setAttribute('aria-hidden', true);
+    CLOSE_BTN.removeEventListener('mouseover', () => {
+        CLOSE_BTN.style.display = 'none';
+    });
+    CLOSE_BTN.removeEventListener('mouseout', () => {
+        CLOSE_BTN.style.display = 'inline';
+    });
+}
+
+function manageCloseButtonEvents() {
+    CLOSE_BTN.addEventListener('mouseover', () => {
+        CLOSE_BTN.style.display = 'none';
+    });
+    CLOSE_BTN.addEventListener('mouseout', () => {
+        CLOSE_BTN.style.display = 'inline';
+    });
+}
+
+function manageKeyboardEvents(event, id) {
+
+    switch (event.key) {
+    case 'ArrowLeft':
+        displayContent(getPreviousId(id));
+        break;
+    case 'ArrowRight':
+        displayContent(getNextId(id));
+        break;
+    case 'Escape':
+        closeLightBox();
+        break;
+    default:
+        break;
+    }
 }
 
 function openLightBox(id) {
+    mediaId = id;
     const LIGHTBOX = document.getElementById('lightbox');
+    const HEADER = document.getElementById('header');
+    const MAIN = document.getElementById('main');
+    HEADER.setAttribute('aria-hidden', true);
+    MAIN.setAttribute('aria-hidden', true);
     LIGHTBOX.style.display = 'flex';
+    LIGHTBOX.setAttribute('aria-hidden', false);
     displayContent(id);
+    CLOSE_BTN.focus();
+    manageCloseButtonEvents();
+    document.addEventListener('keydown', (event) => {
+        manageKeyboardEvents(event, mediaId);
+    });
 }
+
+const CLOSE_BTN = document.getElementById('close-box');
+let mediaId;

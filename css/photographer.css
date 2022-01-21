@@ -167,6 +167,7 @@ p.location {
     height: 300px;
     object-fit: cover;
     border-radius: 5px;
+    cursor: pointer;
 }
 #gallery .legend, 
 #gallery .like-button {
@@ -178,11 +179,15 @@ p.location {
     margin-top: 5px;
 }
 #gallery .like-button {
+    font-size: 0;
     background-color: transparent;
     border: none;
     cursor: pointer;
 }
-#gallery .like-button:hover i {
+#gallery .like-button span {
+    font-size: 24px;
+}
+#gallery .like-button:hover span {
     color: #DB8876;
 }
 #gallery .title, 
@@ -311,7 +316,7 @@ form textarea {
     position: relative;
     height: 85%;
 }
-#lightbox i {
+#lightbox span {
     font-size: 48px;
     color: #901C1C;
 }
@@ -325,6 +330,9 @@ form textarea {
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
+}
+#lightbox a:hover span {
+    color: #DB8876;
 }
 #next {
     right: 0;
@@ -341,6 +349,10 @@ form textarea {
     width: 100%;
     height: 100%;
     object-fit: contain;
+}
+#lightbox-title {
+    text-align: center;
+    margin-top: 10px;
 }
 
 /* div informations */

@@ -60,6 +60,8 @@ function displayPhotographerPresentation(data) {
     LOCATION.textContent = PHOTOGRAPHER.city + ', ' + PHOTOGRAPHER.country;
     TAGLINE.textContent = PHOTOGRAPHER.tagline;
     PICTURE.setAttribute('src', PHOTOGRAPHER.portrait);
+    PICTURE.setAttribute('alt', PHOTOGRAPHER.name);
+    PICTURE.setAttribute('title', PHOTOGRAPHER.name + ' portrait');
 }
 
 async function getAllMedias() {
@@ -155,11 +157,15 @@ function displayPhotographerGalery(mediasData) {
         const ID_HIDDEN = document.createElement('input');
         const SORT_HIDDEN = document.createElement('input');
         const LIKE_BUTTON = document.createElement('button');
-        const LIKE_ICON = document.createElement('i');
+        const LIKE_ICON = document.createElement('span');
 
         LINK.setAttribute('onclick', 'openLightBox(' + media.id + ')');
+        LINK.setAttribute('class', 'lightbox-link');
+        LINK.setAttribute('role', 'link');
+        LINK.setAttribute('title', media.title + ', closeup view');
+        LINK.setAttribute('tabindex', '0');       
         IMG.setAttribute('src', media.image);
-        IMG.setAttribute('alt', '');
+        IMG.setAttribute('alt', media.description);
         LEGEND.setAttribute('class', 'legend');
         TITLE.setAttribute('class', 'title');
         TITLE.textContent = media.title;
@@ -169,6 +175,8 @@ function displayPhotographerGalery(mediasData) {
         LIKE_FORM.setAttribute('action', getPageUrl());
         LIKE_FORM.setAttribute('method', 'GET');
         LIKE_FORM.setAttribute('class', 'like-form');
+        LIKE_BUTTON.textContent = 'Add like';
+        LIKE_ICON.setAttribute('title', 'Media likes');
         ID_HIDDEN.setAttribute('type', 'hidden');
         ID_HIDDEN.setAttribute('name', 'id');
         ID_HIDDEN.setAttribute('value', media.photographerId);
@@ -192,12 +200,20 @@ function displayPhotographerGalery(mediasData) {
         ARTICLE.appendChild(LINK);
         ARTICLE.appendChild(LEGEND);
         GALLERY.appendChild(ARTICLE);
+        /*
+        LINK.addEventListener('keydown', (evt) => {
+            if (evt.key === 'Enter') {
+                LINK.onclick(evt);
+            }
+        });
+        */
     });
     for (let i = 0; i < LOOP; i++) {
         let blank = document.createElement('article');
         blank.setAttribute('class', 'blank');
         GALLERY.appendChild(blank);
-    } 
+    }
+     
 }
 
 function getTotalLikes(medias) {
@@ -233,6 +249,11 @@ function openSortMenu() {
         evt.stopPropagation();
     });
     document.addEventListener('mouseup', closeSortMenu);
+    SORT_MENU.addEventListener('keydown', (evt) => {
+        if (evt.key === 'Escape') {
+            closeSortMenu();
+        }
+    });
 }
 
 function closeSortMenu() {
@@ -254,25 +275,31 @@ function generateSortLink(sort) {
 
 function setLabelSortButton (sortkey) {
     const BUTTON = document.getElementById('sort-menu-button');
-    const ICON = document.createElement('i');
+    const ICON = document.createElement('span');
     ICON.setAttribute('class', 'fas fa-chevron-down');
     BUTTON.textContent = sortkey;
     BUTTON.appendChild(ICON);
+}
+
+function accessibilityReturnKey() {
+    document.onkeydown = function(evt) {
+        if(evt.key === 'Enter') {
+            document.activeElement.onclick(evt);
+        }
+    };
 }
 
 async function main() {
     const PAGE_ID = getPhotographerPageId();
     const SORT = getSortChoice();
     setLabelSortButton(translate(SORT));
-    //const MEDIAS = await getPhotographerMedias(PAGE_ID);
     medias = await getPhotographerMedias(PAGE_ID);
     const PHOTOGRAPHER_DATA = getPhotographerData(PAGE_ID);
     displayPhotographerPresentation(PHOTOGRAPHER_DATA);
-    //displayFooter(PHOTOGRAPHER_DATA, MEDIAS);
     displayFooter(PHOTOGRAPHER_DATA, medias);
     const SORTED_MEDIAS = sortMedias(SORT, medias);
-    console.log(medias);
     displayPhotographerGalery(SORTED_MEDIAS);
+    accessibilityReturnKey();
 }
 
 let medias;
