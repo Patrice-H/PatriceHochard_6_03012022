@@ -5,3 +5,6 @@ package-lock.json
 
 #ignore node_modules folder
 node_modules/
+
+# ignore .vscode configuration
+.vscode/
