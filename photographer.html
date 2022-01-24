@@ -63,11 +63,14 @@
 			<div class="modal">
 				<header>
           <h2>Contactez-moi<br /><span id="modal-contact-name"></span></h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" alt="close button" />
+          <button onclick="closeModal()" id="modal-close-btn">
+            <img src="assets/icons/close-dark-color.svg" alt="close button" />
+            <img src="assets/icons/close.svg" alt="close button" id="close-modal" />
+          </button>
         </header>
 				<form action="photographer.html" method="get">
 					<div>
-            <input type="hidden" name="id" id="modal-id" />
+            <input type="hidden" name="recipient-id" id="recipient-id" />
 						<label for="firstname" id="firstname-label">Prénom</label>
             <input type="text" name="firstname" id="firstname" aria-labelledby="firstname-label" required />
             <label for="lastname" id="lastname-label">Nom</label>
@@ -77,7 +80,7 @@
             <label for="message" id="message-label">Votre message</label>
             <textarea name="message" id="message" aria-labelledby="message-label"></textarea>
 					</div>
-          <button type="submit" class="contact_button">Envoyer</button>
+          <button onclick="sendModalForm()" type="submit" class="contact_button" id="contact-submit">Envoyer</button>
 				</form>
 			</div>
 		</div>

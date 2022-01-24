@@ -230,7 +230,8 @@ p.location {
     transform: none;
 }
 #contact_modal .contact_button:hover {
-    background-color: #901C1C;
+    /*background-color: #901C1C;*/
+    border: solid 2px #901C1C;
 }
 .modal {
     background-color: #DB8876;
@@ -264,6 +265,18 @@ p.location {
     line-height: 72px;
     color: black;
     margin: -15px 0 20px;
+}
+#modal-close-btn {
+    background-color: transparent;
+    position: relative;
+    border: none;
+}
+#modal-close-btn img {
+    position: absolute;
+    right: 0;
+}
+#modal-close-btn:hover img#close-modal {
+    display: none;
 }
 form {
     display: flex;
