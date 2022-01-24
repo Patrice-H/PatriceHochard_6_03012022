@@ -9,27 +9,29 @@ function displayPhotographerContact(id) {
 }
 
 
-function displayModal() {
-    const modal = document.getElementById('contact_modal');
+function displayModal(evt) {
     const MODAL_HIDDEN = document.getElementById('recipient-id');
     const MODAL_ID = getPhotographerPageId();
+    const MODAL_CLOSE_BTN = document.getElementById('modal-close-btn');
+    evt.preventDefault();
     MODAL_HIDDEN.setAttribute('value', MODAL_ID);
-    modal.style.display = 'block';
+    MODAL_WINDOW.style.display = 'block';
+    HEADER.setAttribute('aria-hidden', true);
+    MAIN.setAttribute('aria-hidden', true);
+    MODAL_CLOSE_BTN.focus();
     displayPhotographerContact(MODAL_ID);
 }
 
 
 function closeModal() {
-    const modal = document.getElementById('contact_modal');
-    modal.style.display = 'none';
+    MODAL_WINDOW.style.display = 'none';
+    HEADER.setAttribute('aria-hidden', false);
+    MAIN.setAttribute('aria-hidden', false);
 }
 
 
 function displayContactData() {
     const RECIPIENT = document.getElementById('recipient-id');
-    const FIRSTNAME = document.getElementById('firstname');
-    const LASTNAME = document.getElementById('lastname');
-    const EMAIL = document.getElementById('email');
     const MESSAGE = document.getElementById('message');
     console.log(`Recipient id : ${RECIPIENT.value}`);
     console.log(`First name : ${FIRSTNAME.value}`);
@@ -40,12 +42,68 @@ function displayContactData() {
 }
 
 
-function sendModalForm() {
-    closeModal();
-    displayContactData();
+function controlFirstname() {
+    let response = true;
+    if (FIRSTNAME.value === '') {
+        response = false;
+        FIRSTNAME.setAttribute('class', 'input-error');
+    }
+
+    return response;
 }
 
+function controlLastname() {
+    let response = true;
+    if (LASTNAME.value === '') {
+        response = false;
+        LASTNAME.setAttribute('class', 'input-error');
+    }
+
+    return response;
+}
+
+function controlEmail() {
+    let response = true;
+    if (EMAIL.value === '') {
+        response = false;
+        EMAIL.setAttribute('class', 'input-error');
+    }
+
+    return response;
+}
+
+function controlsManager() {
+    let count = 0;
+    if (controlFirstname()) count++;
+    if (controlLastname()) count++;
+    if (controlEmail()) count++;
+
+    return count === 3;
+}
+
+function sendModalForm() {
+    if (controlsManager()) {
+        closeModal();
+        displayContactData();
+    }
+}
+
+const HEADER = document.getElementById('header');
+const MAIN = document.getElementById('main');
+const MODAL_WINDOW = document.getElementById('contact_modal');
+const FIRSTNAME = document.getElementById('firstname');
+const LASTNAME = document.getElementById('lastname');
+const EMAIL = document.getElementById('email');
 const CONTACT_BUTTON = document.getElementById('contact-submit');
+FIRSTNAME.addEventListener('change', () => {
+    FIRSTNAME.removeAttribute('class');
+});
+LASTNAME.addEventListener('change', () => {
+    LASTNAME.removeAttribute('class');
+});
+EMAIL.addEventListener('change', () => {
+    EMAIL.removeAttribute('class');
+});
 CONTACT_BUTTON.addEventListener('click', (evt) => {
     evt.preventDefault();
 });

@@ -268,11 +268,14 @@ p.location {
 #modal-close-btn {
     background-color: transparent;
     position: relative;
+    width: 42px;
+    height: 42px;
     border: none;
 }
 #modal-close-btn img {
     position: absolute;
     right: 0;
+    top: 0;
 }
 #modal-close-btn:hover img#close-modal {
     display: none;
@@ -310,6 +313,9 @@ form textarea {
     resize: none;
     border: none;
     border-radius: 5px;
+}
+.input-error {
+    border: solid 2px red;
 }
 
 /* lightbox */
@@ -394,6 +400,7 @@ form textarea {
         font-size: 48px;
         line-height: 54px;
     }
+    #modal-close-btn,
     .modal header img {
         width: 32px;
         height: 32px;
@@ -494,6 +501,7 @@ form textarea {
             font-size: 36px;
             line-height: 48px;
         }
+        #modal-close-btn,
         .modal header img {
             width: 24px;
             height: 24px;
