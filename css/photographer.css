@@ -230,7 +230,6 @@ p.location {
     transform: none;
 }
 #contact_modal .contact_button:hover {
-    /*background-color: #901C1C;*/
     border: solid 2px #901C1C;
 }
 .modal {
