@@ -1,3 +1,10 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
+
+/**
+ * @description Get the URL of page and return id parameter
+ * @returns {number} The id parameter in URL
+ */
 function getPhotographerPageId() {
     const URL = location.href;
     let photographerPage = URL.split('?id=')[1];
@@ -8,242 +15,150 @@ function getPhotographerPageId() {
     return photographerPage;
 }
 
-function getPageUrl() {
-    const URL = location.href;
-    if (URL.includes('?')) {
-        return URL.split('?')[0];
-    }
-
-    return URL;
-}
-
-function translate(sort) {
-    switch (sort) {
-    case 'popurality':
-        return 'Popularité';
-    case 'date':
-        return 'Date';
-    case 'title':
-        return 'Titre';
-    default:
-        return 'Popularité';
-    }
-}
-
-function getSortChoice() {
-    const URL = location.href;
-    let sortParams = 'popularity';
-    if (URL.includes('&sorted-by=')) {
-        sortParams = URL.split('&sorted-by=')[1];
-        if (sortParams.includes('&')) {
-            sortParams = sortParams.split('&')[0];
-        }
-    }
-
-    return sortParams;
-}
-
+/**
+ * @description Get the photographer data in session storage
+ * @param {number} id - The photographer id
+ * @returns {JSON} The photographer data
+ */
 function getPhotographerData(id) {
     const PHOTOGRAPHERS = sessionStorage.getItem(id);
 
     return (JSON.parse(PHOTOGRAPHERS));
 }
 
-function displayPhotographerPresentation(data) {
-    // eslint-disable-next-line no-undef
-    const PHOTOGRAPHER = photographerFactory(data);
-    const NAME = document.getElementById('presentation-name');
-    const LOCATION = document.getElementById('presentation-location');
-    const TAGLINE = document.getElementById('presentation-tagline');
-    const PICTURE = document.getElementById('presentation-img');
-    NAME.textContent = PHOTOGRAPHER.name;
-    LOCATION.textContent = PHOTOGRAPHER.city + ', ' + PHOTOGRAPHER.country;
-    TAGLINE.textContent = PHOTOGRAPHER.tagline;
-    PICTURE.setAttribute('src', PHOTOGRAPHER.portrait);
-    PICTURE.setAttribute('alt', PHOTOGRAPHER.name);
-    PICTURE.setAttribute('title', PHOTOGRAPHER.name + ' portrait');
-}
-
-async function getAllMedias() {
-    const MEDIAS = fetch('./data/photographers.json')
+/**
+ * @description Get data about all media in Json file and return them
+ * @returns {[JSON])} The array of all media in Json file
+ */
+function getAllMedias() {
+    return fetch('./data/photographers.json')
         .then(response => response.json())
         .then(data => data.media)
         .catch(err => console.log('Error : ', err))
     ;
-
-    return MEDIAS;
 }
 
-async function getPhotographerMedias(photographerId) {
-    const ALL_MEDIAS = await getAllMedias();
-    let photographerMedias = [];
-
-    ALL_MEDIAS.forEach(media => {
-        // eslint-disable-next-line no-undef
-        const MEDIA = mediaFactory(media);
-
-        if (MEDIA.photographerId === parseInt(photographerId)) {
-            photographerMedias.push(MEDIA);            
+/**
+ * @description Return the number of media likes
+ * @param {number} id - the media id
+ * @returns {number} the total number of media likes
+ */
+function getLikes(id) {
+    medias.forEach(media => {
+        if (media.id === id) {
+            return media.likes;
         }
     });
-
-    return photographerMedias;
 }
 
-function getLikes(id, likes) {
-    if (sessionStorage.getItem(id)) {
-        return sessionStorage.getItem(id);
-    } else {
-        return likes;
-    }
-}
-
-function sortMedias(sortkey, mediasdata) {
+/**
+ * @description Sort array of media according to sort choice. (bubble sort)
+ * @param {string} sortkey - Sort choice
+ */
+function sortMedias(sortkey) {
     let temp;
     let data;
     let datanext;
-    for (let i = mediasdata.length - 1; i > 0; i--) {
+    for (let i = medias.length - 1; i > 0; i--) {
         for (let j = 0; j < i; j++) {
             switch (sortkey) {
             case 'popularity':
-                data = mediasdata[j].likes;
-                datanext = mediasdata[j + 1].likes;
+                data = medias[j].likes;
+                datanext = medias[j + 1].likes;
                 break;
             case 'date':
-                data = mediasdata[j].date;
-                datanext = mediasdata[j + 1].date;
+                data = medias[j].date;
+                datanext = medias[j + 1].date;
                 break;     
             case 'title':
-                data = mediasdata[j].title;
-                datanext = mediasdata[j + 1].title;
+                data = medias[j].title;
+                datanext = medias[j + 1].title;
                 break;     
             default:
-                data = mediasdata[j].likes;
-                datanext = mediasdata[j + 1].likes;
+                data = medias[j].likes;
+                datanext = medias[j + 1].likes;
                 break;
             }
             if (sortkey === 'title') {
                 if (data > datanext) {
-                    temp = mediasdata[j];
-                    mediasdata[j] = mediasdata[j + 1];
-                    mediasdata[j + 1] = temp;
+                    temp = medias[j];
+                    medias[j] = medias[j + 1];
+                    medias[j + 1] = temp;
                 }  
             } else {
                 if (data < datanext) {
-                    temp = mediasdata[j];
-                    mediasdata[j] = mediasdata[j + 1];
-                    mediasdata[j + 1] = temp;
+                    temp = medias[j];
+                    medias[j] = medias[j + 1];
+                    medias[j + 1] = temp;
                 }
             } 
         }
     }
-
-    return mediasdata;
 }
 
-function displayPhotographerGalery(mediasData) {
+/**
+ * @description Build photographer gallery and display it
+ */
+function displayPhotographerGalery() {
     const GALLERY = document.getElementById('gallery');
-    const LOOP = 3 - (mediasData.length % 3);
-    
-    mediasData.forEach(media => {
-        const ARTICLE = document.createElement('article');
-        const LINK = document.createElement('a');
-        const IMG = document.createElement('img');
-        const LEGEND = document.createElement('div');
-        const TITLE = document.createElement('p');
-        const LIKE = document.createElement('p');
-        const LIKE_COUNT = document.createElement('span');
-        const LIKE_FORM = document.createElement('form');
-        const ID_HIDDEN = document.createElement('input');
-        const SORT_HIDDEN = document.createElement('input');
-        const LIKE_BUTTON = document.createElement('button');
-        const LIKE_ICON = document.createElement('span');
-
-        LINK.setAttribute('onclick', 'openLightBox(' + media.id + ')');
-        LINK.setAttribute('class', 'lightbox-link');
-        LINK.setAttribute('role', 'link');
-        LINK.setAttribute('title', media.title + ', closeup view');
-        LINK.setAttribute('tabindex', '0');       
-        IMG.setAttribute('src', media.image);
-        IMG.setAttribute('alt', media.description);
-        LEGEND.setAttribute('class', 'legend');
-        TITLE.setAttribute('class', 'title');
-        TITLE.textContent = media.title;
-        LIKE.setAttribute('class', 'like');
-        LIKE_COUNT.setAttribute('class', 'like-count');
-        LIKE_COUNT.textContent = getLikes(media.id, media.likes);
-        LIKE_FORM.setAttribute('action', getPageUrl());
-        LIKE_FORM.setAttribute('method', 'GET');
-        LIKE_FORM.setAttribute('class', 'like-form');
-        LIKE_BUTTON.textContent = 'Add like';
-        LIKE_ICON.setAttribute('title', 'Media likes');
-        ID_HIDDEN.setAttribute('type', 'hidden');
-        ID_HIDDEN.setAttribute('name', 'id');
-        ID_HIDDEN.setAttribute('value', media.photographerId);
-        SORT_HIDDEN.setAttribute('type', 'hidden');
-        SORT_HIDDEN.setAttribute('name', 'sorted-by');
-        SORT_HIDDEN.setAttribute('value', getSortChoice());
-        LIKE_BUTTON.setAttribute('class', 'like-button');
-        LIKE_BUTTON.setAttribute('name', 'like');
-        LIKE_BUTTON.setAttribute('value', media.id);
-        LIKE_BUTTON.setAttribute('onclick', 'addLike(' + media.id + ', ' + media.likes + ')');
-        LIKE_ICON.setAttribute('class', 'fas fa-heart');
-
-        LINK.appendChild(IMG);
-        LIKE_BUTTON.appendChild(LIKE_ICON);
-        LIKE_FORM.appendChild(ID_HIDDEN);
-        LIKE_FORM.appendChild(SORT_HIDDEN);
-        LIKE_FORM.appendChild(LIKE_COUNT);
-        LIKE_FORM.appendChild(LIKE_BUTTON);
-        LEGEND.appendChild(TITLE);
-        LEGEND.appendChild(LIKE_FORM);
-        ARTICLE.appendChild(LINK);
-        ARTICLE.appendChild(LEGEND);
+    const LOOP = 3 - (medias.length % 3);
+    while(GALLERY.hasChildNodes()) {
+        GALLERY.removeChild(GALLERY.firstChild);
+    }
+    medias.forEach(media => {
+        const MEDIA = mediaFactory(media);
+        const ARTICLE = MEDIA.getGalleryArticle();
         GALLERY.appendChild(ARTICLE);
-        /*
-        LINK.addEventListener('keydown', (evt) => {
-            if (evt.key === 'Enter') {
-                LINK.onclick(evt);
-            }
-        });
-        */
     });
     for (let i = 0; i < LOOP; i++) {
         let blank = document.createElement('article');
         blank.setAttribute('class', 'blank');
         GALLERY.appendChild(blank);
-    }
-     
+    }   
 }
 
-function getTotalLikes(medias) {
+/**
+ * @description Return total photographer likes
+ * @returns {number} sum 
+ */
+function getTotalLikes() {
     let sum = 0;
     medias.forEach(media => {
-        sum = sum + parseInt(getLikes(media.id, media.likes));
+        sum = sum + media.likes;
     });
 
     return sum;
 }
 
-function displayFooter(photographer, medias) {
-    const TOTAL_LIKES = document.getElementById('total-likes');
+/**
+ * @description Display aside on bottom window with total likes and price per day
+ * @param {[object]} photographer - Photographer data
+ */
+function displayAside(photographer) {
     const PHOTOGRAPHER_PRICE = document.getElementById('photographer-price');
     TOTAL_LIKES.textContent = getTotalLikes(medias);
     PHOTOGRAPHER_PRICE.textContent = photographer.price + ' € / jour';
 }
 
-// eslint-disable-next-line no-unused-vars
-function addLike(id, likes) {
-    if (sessionStorage.getItem(id)) {
-        sessionStorage.setItem(id, parseInt(sessionStorage.getItem(id)) + 1);
-    } else {
-        sessionStorage.setItem(id, parseInt(likes) + 1);
+/**
+ * @description Update media id
+ * @param {*} id - The media id
+ */
+function addLike(id) {
+    const LIKE_COUNTERS = Array.from(document.getElementsByClassName('like-count'));
+    for (let i = 0; i < medias.length; i++) {
+        if (medias[i].id === id) {
+            medias[i].likes = medias[i].likes + 1;
+            LIKE_COUNTERS[i].textContent = medias[i].likes;
+        }
     }
+    TOTAL_LIKES.textContent = getTotalLikes(medias);
 }
 
-// eslint-disable-next-line no-unused-vars
+/**
+ * @description Open the sort drop down and manage listeners
+ */
 function openSortMenu() {
-    const SORT_MENU = document.getElementById('sort-options');
     SORT_MENU.setAttribute('class', '');
     SORT_MENU.addEventListener('mouseup', (evt) => {
         evt.stopPropagation();
@@ -256,31 +171,59 @@ function openSortMenu() {
     });
 }
 
+/**
+ * @description Close the sort drop down and remove listener
+ */
 function closeSortMenu() {
-    const SORT_MENU = document.getElementById('sort-options');
     SORT_MENU.setAttribute('class', 'hidden');
     document.removeEventListener('mouseup', closeSortMenu);
 }
 
-// eslint-disable-next-line no-unused-vars
-function generateSortLink(sort) {
-    const LINK = getPageUrl() 
-        + '?id=' 
-        + getPhotographerPageId() 
-        + '&sorted-by='
-        + sort
-    ;
-    document.location.href = LINK;
-}
-
+/**
+ * @description Set sort button text according user choice
+ * @param {string} sortkey - Sort choice
+ */
 function setLabelSortButton (sortkey) {
+    let buttonLabel;
+    switch (sortkey) {
+    case 'popurality':
+        buttonLabel = 'Popularité';
+        break;
+    case 'date':
+        buttonLabel = 'Date';
+        break;
+    case 'title':
+        buttonLabel = 'Titre';
+        break;
+    default:
+        buttonLabel = 'Popularité';
+        break;
+    }
     const BUTTON = document.getElementById('sort-menu-button');
     const ICON = document.createElement('span');
     ICON.setAttribute('class', 'fas fa-chevron-down');
-    BUTTON.textContent = sortkey;
+    BUTTON.textContent = buttonLabel;
     BUTTON.appendChild(ICON);
 }
 
+/**
+ * @description Sort the media, manage the state of drop down and display a new gallery sorted
+ * @see {@link sortMedias}
+ * @see {@link closeSortMenu}
+ * @see {@link setLabelSortButton}
+ * @see {@link displayPhotographerGalery}
+ * @param {string} sortkey - Sort choice
+ */
+function sortGalleryBy(sortkey) {
+    sortMedias(sortkey);
+    closeSortMenu();
+    setLabelSortButton(sortkey);
+    displayPhotographerGalery();
+}
+
+/**
+ * @description Manage return key accessibility
+ */
 function accessibilityReturnKey() {
     document.onkeydown = function(evt) {
         if(evt.key === 'Enter') {
@@ -289,19 +232,29 @@ function accessibilityReturnKey() {
     };
 }
 
+/**
+ * @description Entry function manage the display of the page
+ */
 async function main() {
     const PAGE_ID = getPhotographerPageId();
-    const SORT = getSortChoice();
-    setLabelSortButton(translate(SORT));
-    medias = await getPhotographerMedias(PAGE_ID);
     const PHOTOGRAPHER_DATA = getPhotographerData(PAGE_ID);
-    displayPhotographerPresentation(PHOTOGRAPHER_DATA);
-    displayFooter(PHOTOGRAPHER_DATA, medias);
-    const SORTED_MEDIAS = sortMedias(SORT, medias);
-    displayPhotographerGalery(SORTED_MEDIAS);
+    const PHOTOGRAPHER = photographerFactory(PHOTOGRAPHER_DATA);
+    PHOTOGRAPHER.displayPresentation();
+    setLabelSortButton('popularity');
+    await getAllMedias().then(datas => {
+        datas.forEach(data => {
+            if (data.photographerId === parseInt(PAGE_ID)) {
+                medias.push(mediaFactory(data));
+            }
+        });
+    });
+    displayAside(PHOTOGRAPHER_DATA);
+    sortMedias('popularity');
+    displayPhotographerGalery();
     accessibilityReturnKey();
 }
 
-let medias;
-
+let medias = [];
+const TOTAL_LIKES = document.getElementById('total-likes');
+const SORT_MENU = document.getElementById('sort-options');
 main();
