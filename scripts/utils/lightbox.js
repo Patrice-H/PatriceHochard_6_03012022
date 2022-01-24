@@ -1,5 +1,11 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
+
+/**
+ * @description Return the media title
+ * @param {number} id - The current media id
+ * @returns {string} title - The media title
+ */
 function getMediaTitle(id) {
     let title;
     medias.forEach(media => {
@@ -11,6 +17,11 @@ function getMediaTitle(id) {
     return title;
 }
 
+/**
+ * @description Return entire URL of the image
+ * @param {number} id - The current media id
+ * @returns {string} path - The image URL
+ */
 function getImagePath(id) {
     let path;
     medias.forEach(media => {
@@ -22,6 +33,11 @@ function getImagePath(id) {
     return path;
 }
 
+/**
+ * @description Return entire URL of the video
+ * @param {number} id The current media id
+ * @returns {string} path - The video URL
+ */
 function getVideoPath(id) {
     let path;
     medias.forEach(media => {
@@ -33,6 +49,11 @@ function getVideoPath(id) {
     return path;
 }
 
+/**
+ * @description Return the previous media id or the last id if current id is the first of the media array
+ * @param {number} id - The current media id
+ * @returns {number} previousId - The previous media id
+ */
 function getPreviousId(id) {
     let previousId;
     for (let i = 0; i < medias.length; i++) {
@@ -48,7 +69,11 @@ function getPreviousId(id) {
     return previousId;
 }
 
-
+/**
+ * @description Return the next media id or the first id if current id is the last of the media array
+ * @param {number} id - The current media id
+ * @returns {number} nextId - The next media id
+ */
 function getNextId(id) {
     let nextId;
     for (let i = 0; i < medias.length; i++) {
@@ -64,6 +89,11 @@ function getNextId(id) {
     return nextId;
 }
 
+/**
+ * @description Control if the media is a video or not
+ * @param {number} id - The current media id
+ * @returns {boolean} response
+ */
 function isMediaVideo(id) {
     let response = false;
     medias.forEach(media => {
@@ -77,6 +107,10 @@ function isMediaVideo(id) {
     return response;
 }
 
+/**
+ * @description Ligthbox layout with control buttons from media id
+ * @param {number} id - The current media id
+ */
 function displayContent(id) {
     mediaId = id;
     const MEDIA_CONTENT = document.getElementById('lightbox-media');
@@ -108,8 +142,10 @@ function displayContent(id) {
     MEDIA_CONTENT.appendChild(TITLE);
 }
 
+/**
+ * @description Close the lightbox and remove the listeners
+ */
 function closeLightBox() {
-    const LIGHTBOX = document.getElementById('lightbox');
     const HEADER = document.getElementById('header');
     const MAIN = document.getElementById('main');
     HEADER.setAttribute('aria-hidden', false);
@@ -124,6 +160,9 @@ function closeLightBox() {
     });
 }
 
+/**
+ * @description Add mouse event listeners on close button
+ */
 function manageCloseButtonEvents() {
     CLOSE_BTN.addEventListener('mouseover', () => {
         CLOSE_BTN.style.display = 'none';
@@ -133,14 +172,18 @@ function manageCloseButtonEvents() {
     });
 }
 
-function manageKeyboardEvents(event, id) {
-
+/**
+ * @description Manage the keyboard events. Switch action when a key is pressed
+ * @param {KeyboardEvent} event 
+ * @param {number} id - The current media id
+ */
+function manageKeyboardEvents(event) {
     switch (event.key) {
     case 'ArrowLeft':
-        displayContent(getPreviousId(id));
+        displayContent(getPreviousId(mediaId));
         break;
     case 'ArrowRight':
-        displayContent(getNextId(id));
+        displayContent(getNextId(mediaId));
         break;
     case 'Escape':
         closeLightBox();
@@ -150,9 +193,15 @@ function manageKeyboardEvents(event, id) {
     }
 }
 
+/**
+ * @description Open the lightbox and lauch displaying functions and event listeners
+ * @see {@link displayContent}
+ * @see {@link manageCloseButtonEvents}
+ * @see {@link manageKeyboardEvents}
+ * @param {number} id - The current media id
+ */
 function openLightBox(id) {
     mediaId = id;
-    const LIGHTBOX = document.getElementById('lightbox');
     const HEADER = document.getElementById('header');
     const MAIN = document.getElementById('main');
     HEADER.setAttribute('aria-hidden', true);
@@ -163,9 +212,10 @@ function openLightBox(id) {
     CLOSE_BTN.focus();
     manageCloseButtonEvents();
     document.addEventListener('keydown', (event) => {
-        manageKeyboardEvents(event, mediaId);
+        manageKeyboardEvents(event);
     });
 }
 
+const LIGHTBOX = document.getElementById('lightbox');
 const CLOSE_BTN = document.getElementById('close-box');
 let mediaId;
