@@ -69,6 +69,7 @@ function mediaFactory(data) {
         LIKE_BUTTON.setAttribute('name', 'like');
         LIKE_BUTTON.setAttribute('value', `${id}`);
         LIKE_BUTTON.setAttribute('onclick', `addLike(${id})`);
+        LIKE_BUTTON.setAttribute('title', 'Add like');
         LIKE_ICON.setAttribute('class', 'fas fa-heart');
 
         LINK.appendChild(IMG);

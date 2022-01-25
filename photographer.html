@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="icon" type="image/png" href="assets/icons/logo-icon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
     <link 
         rel="stylesheet" 
@@ -17,7 +17,7 @@
   <body>
     <header id="header">
       <a href="index.html" title="Home page">
-        <img src="assets/images/logo.png" class="logo" alt="Fisheye home page" />
+        <img src="assets/images/logo.png" class="logo" alt="logo" />
       </a>
     </header>
     <main id="main">
@@ -30,22 +30,28 @@
         </div>
         <button class="contact_button" onclick="displayModal(event)" title="Contact me">Contactez-moi</button>
         <div id="presentation-picture">
-          <img src="#" alt="profile photo" id="presentation-img">
+          <img src="#" alt="" id="presentation-img">
         </div>
       </section>
       <!-- DROP DOWN -->
       <div id="sort-menu">
         <p>Trier par :</p>
-        <button onclick="openSortMenu()" aria-haspopup="listbox" id="sort-menu-button" title="Order by"></button>
-        <ul class="hidden" id="sort-options" role="listbox">
-          <li><a onclick="sortGalleryBy('popularity')" class="sort-link" role="option" tabindex="0">
+        <button onclick="openSortMenu()" aria-haspopup="listbox" aria-expanded="false" id="sort-menu-button" title="Order by drop down menu"></button>
+        <ul class="hidden" role="listbox" id="sort-options" title="Order by options">
+          <li role="option" title="Order by popularity" tabindex="0">
+            <a onclick="sortGalleryBy('popularity')" class="sort-link">
             Popularité
             <span class="fas fa-chevron-up"></span>
-          </a></li>
-          <li class="separator" role="option">──────────────</li>
-          <li><a onclick="sortGalleryBy('date')" class="sort-link" role="option" tabindex="0">Date</a></li>
-          <li class="separator">──────────────</li>
-          <li><a onclick="sortGalleryBy('title')" class="sort-link" role="option" tabindex="0">Titre</a></li>
+            </a>
+          </li>
+          <li class="separator" role="none">──────────────</li>
+          <li role="option" title="Order by date" tabindex="0">
+            <a onclick="sortGalleryBy('date')" class="sort-link">Date</a>
+          </li>
+          <li class="separator" role="none">──────────────</li>
+          <li role="option" title="Order by title" tabindex="0">
+            <a onclick="sortGalleryBy('title')" class="sort-link">Titre</a>
+          </li>
         </ul>
       </div>
       <!-- GALLERY -->
@@ -72,13 +78,13 @@
 					<div>
             <input type="hidden" name="recipient-id" id="recipient-id" />
 						<label for="firstname" id="firstname-label">Prénom</label>
-            <input type="text" name="firstname" id="firstname" aria-labelledby="firstname-label" required />
+            <input type="text" name="firstname" id="firstname" aria-labelledby="firstname-label" title="First name" required />
             <label for="lastname" id="lastname-label">Nom</label>
-            <input type="text" name="lastname" id="lastname" aria-labelledby="lastname-label" required />
+            <input type="text" name="lastname" id="lastname" aria-labelledby="lastname-label" title="Last name" required />
             <label for="email" id="email-label">Email</label>
-            <input type="text" name="email" id="email" aria-labelledby="email-label" required />
+            <input type="text" name="email" id="email" aria-labelledby="email-label" title="Email" required />
             <label for="message" id="message-label">Votre message</label>
-            <textarea name="message" id="message" aria-labelledby="message-label"></textarea>
+            <textarea name="message" id="message" aria-labelledby="message-label" title="Message"></textarea>
 					</div>
           <button onclick="sendModalForm()" type="submit" class="contact_button" id="contact-submit">Envoyer</button>
 				</form>
