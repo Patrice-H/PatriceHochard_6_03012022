@@ -1,14 +1,20 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 
-
+/**
+ * @description Display the name of the photographer on the contact modal
+ * @param {number} id - The photographer id
+ */
 function displayPhotographerContact(id) {
     const PHOTOGRAPHER = getPhotographerData(id);
     const CONTACT_MODAL = document.getElementById('modal-contact-name');
     CONTACT_MODAL.textContent = PHOTOGRAPHER.name;
 }
 
-
+/**
+ * @description Display the contact modal window
+ * @param {MouseEvent} evt 
+ */
 function displayModal(evt) {
     const MODAL_HIDDEN = document.getElementById('recipient-id');
     const MODAL_ID = getPhotographerPageId();
@@ -22,14 +28,18 @@ function displayModal(evt) {
     displayPhotographerContact(MODAL_ID);
 }
 
-
+/**
+ * @description Close the contact modal window
+ */
 function closeModal() {
     MODAL_WINDOW.style.display = 'none';
     HEADER.setAttribute('aria-hidden', false);
     MAIN.setAttribute('aria-hidden', false);
 }
 
-
+/**
+ * @description Display user inputs in console
+ */
 function displayContactData() {
     const RECIPIENT = document.getElementById('recipient-id');
     const MESSAGE = document.getElementById('message');
@@ -41,7 +51,10 @@ function displayContactData() {
 
 }
 
-
+/**
+ * @description Control if user first name input is filled or not
+ * @returns {boolean} response
+ */
 function controlFirstname() {
     let response = true;
     if (FIRSTNAME.value === '') {
@@ -52,6 +65,10 @@ function controlFirstname() {
     return response;
 }
 
+/**
+ * @description Control if user last name input is filled or not
+ * @returns {boolean} response
+ */
 function controlLastname() {
     let response = true;
     if (LASTNAME.value === '') {
@@ -62,6 +79,10 @@ function controlLastname() {
     return response;
 }
 
+/**
+ * @description Control if user email input is filled or not
+ * @returns {boolean} response
+ */
 function controlEmail() {
     let response = true;
     if (EMAIL.value === '') {
@@ -72,6 +93,13 @@ function controlEmail() {
     return response;
 }
 
+/**
+ * @description Manages all controls of contact form
+ * @see {@link controlFirstname}
+ * @see {@link controlLastname}
+ * @see {@link controlEmail}
+ * @returns {boolean}
+ */
 function controlsManager() {
     let count = 0;
     if (controlFirstname()) count++;
@@ -81,6 +109,12 @@ function controlsManager() {
     return count === 3;
 }
 
+/**
+ * @description Handles form submission
+ * @see {@link controlsManager}
+ * @see {@link closeModal}
+ * @see {@link displayContactData}
+ */
 function sendModalForm() {
     if (controlsManager()) {
         closeModal();
