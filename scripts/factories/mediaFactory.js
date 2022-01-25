@@ -11,7 +11,6 @@ function mediaFactory(data) {
 
     const setImagePath = () => {
         const IMAGE_FOLDER_PATH = 'assets/images/';
-        
         if (data.image) {
             return IMAGE_FOLDER_PATH + data.image;
         } else {
@@ -47,28 +46,28 @@ function mediaFactory(data) {
         const LIKE_BUTTON = document.createElement('button');
         const LIKE_ICON = document.createElement('span');
 
-        LINK.setAttribute('onclick', `openLightBox(${id})`);
+        LINK.setAttribute('onclick', 'openLightBox(' + data.id + ')');
         LINK.setAttribute('class', 'lightbox-link');
         LINK.setAttribute('role', 'link');
-        LINK.setAttribute('title', `${title}, closeup view`);
+        LINK.setAttribute('title', data.title + ', closeup view');
         LINK.setAttribute('tabindex', '0');       
-        IMG.setAttribute('src', `${image}`);
-        IMG.setAttribute('alt', `${description}`);
+        IMG.setAttribute('src', data.image);
+        IMG.setAttribute('alt', data.description);
         LEGEND.setAttribute('class', 'legend');
         TITLE.setAttribute('class', 'title');
-        TITLE.textContent = `${title}`;
+        TITLE.textContent = data.title;
         LIKE.setAttribute('class', 'like');
         LIKE_COUNT.setAttribute('class', 'like-count');
-        LIKE_COUNT.textContent = `${likes}`;
+        LIKE_COUNT.textContent = data.likes;
         LIKE_BUTTON.textContent = 'Add like';
         LIKE_ICON.setAttribute('title', 'Media likes');
         ID_HIDDEN.setAttribute('type', 'hidden');
         ID_HIDDEN.setAttribute('name', 'id');
-        ID_HIDDEN.setAttribute('value', `${photographerId}`);
+        ID_HIDDEN.setAttribute('value', data.photographerId);
         LIKE_BUTTON.setAttribute('class', 'like-button');
         LIKE_BUTTON.setAttribute('name', 'like');
-        LIKE_BUTTON.setAttribute('value', `${id}`);
-        LIKE_BUTTON.setAttribute('onclick', `addLike(${id})`);
+        LIKE_BUTTON.setAttribute('value', data.id);
+        LIKE_BUTTON.setAttribute('onclick', 'addLike('+ data.id + ')');
         LIKE_BUTTON.setAttribute('title', 'Add like');
         LIKE_ICON.setAttribute('class', 'fas fa-heart');
 
