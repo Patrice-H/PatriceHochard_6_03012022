@@ -211,11 +211,11 @@ function openLightBox(id) {
     displayContent(id);
     CLOSE_BTN.focus();
     manageCloseButtonEvents();
-    document.addEventListener('keydown', (event) => {
-        manageKeyboardEvents(event);
-    });
 }
 
 const LIGHTBOX = document.getElementById('lightbox');
 const CLOSE_BTN = document.getElementById('close-box');
 let mediaId;
+document.addEventListener('keydown', (event) => {
+    manageKeyboardEvents(event);
+});
