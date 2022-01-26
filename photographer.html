@@ -38,20 +38,14 @@
         <p>Trier par :</p>
         <button onclick="openSortMenu()" aria-haspopup="listbox" aria-expanded="false" id="sort-menu-button" title="Order by drop down menu"></button>
         <ul class="hidden" role="listbox" id="sort-options" title="Order by options">
-          <li role="option" title="Order by popularity" tabindex="0">
-            <a onclick="sortGalleryBy('popularity')" class="sort-link">
+          <li onclick="sortGalleryBy('popularity')" role="option" title="Order by popularity" tabindex="0">
             Popularité
             <span class="fas fa-chevron-up"></span>
-            </a>
           </li>
-          <li class="separator" role="none">──────────────</li>
-          <li role="option" title="Order by date" tabindex="0">
-            <a onclick="sortGalleryBy('date')" class="sort-link">Date</a>
-          </li>
-          <li class="separator" role="none">──────────────</li>
-          <li role="option" title="Order by title" tabindex="0">
-            <a onclick="sortGalleryBy('title')" class="sort-link">Titre</a>
-          </li>
+          <li class="separator" role="none">────────────</li>
+          <li onclick="sortGalleryBy('date')" role="option" title="Order by date" tabindex="0">Date</li>
+          <li class="separator" role="none">────────────</li>
+          <li onclick="sortGalleryBy('title')" role="option" title="Order by title" tabindex="0">Titre</li>
         </ul>
       </div>
       <!-- GALLERY -->

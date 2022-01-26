@@ -208,16 +208,16 @@ function setLabelSortButton (sortkey) {
 
 /**
  * @description Sort the media, manage the state of drop down and display a new gallery sorted
- * @see {@link sortMedias}
  * @see {@link closeSortMenu}
  * @see {@link setLabelSortButton}
+ * @see {@link sortMedias}
  * @see {@link displayPhotographerGalery}
  * @param {string} sortkey - Sort choice
  */
 function sortGalleryBy(sortkey) {
-    sortMedias(sortkey);
     closeSortMenu();
     setLabelSortButton(sortkey);
+    sortMedias(sortkey);
     displayPhotographerGalery();
 }
 

@@ -119,36 +119,34 @@ p.location {
     border-radius: 5px;
 }
 #sort-menu li {
-    height: 50px;
-    line-height: 50px;
-    list-style: none;
-}
-#sort-menu a {
     font-family: "DM Sans", sans-serif;
     font-size: 18px;
     font-weight: 700;
     color: white;
     display: block;
-    width: 150px;
-    height: 100%;
+    height: 50px;
+    line-height: 50px;
+    list-style: none;
+}
+#sort-menu li span {
+    position: absolute;
+    right: 10px;
+    top: 16px;
+}
+#sort-menu li[role="option"] {
     padding: 0 10px;
-    text-decoration: none;
 }
-#sort-menu a:first-child {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-#sort-menu a:hover {
+#sort-menu li[role="option"]:hover {
     background-color: #DB8876;
     color: black;
+    font-weight: 700;
     cursor: pointer;
 }
 #sort-menu li.separator {
+    text-align: center;
     color: white;
     height: 10px;
     line-height: 10px;
-    margin-left: 5px;
 }
 .hidden {
     display: none;
