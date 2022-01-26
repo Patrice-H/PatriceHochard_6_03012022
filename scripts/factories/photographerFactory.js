@@ -1,5 +1,10 @@
 /* eslint-disable no-unused-vars */
 
+/**
+ * @description Make a javascript object from photographer json data
+ * @param {JSON} data 
+ * @returns {object}
+ */
 function photographerFactory(data) {
     
     const pictureFileFormat = () => {
@@ -11,6 +16,10 @@ function photographerFactory(data) {
         }
     };
 
+    /**
+     * Return photographer generic profile in home page
+     * @returns {HTMLElement} article
+     */
     function displayProfile() {
         const LINK = 'photographer.html?id=' + data.id;
         const ARTICLE = document.createElement('article');
@@ -42,6 +51,9 @@ function photographerFactory(data) {
         return ARTICLE;
     }
 
+    /**
+     * @description Display entire profile in photographer page
+     */
     function displayPresentation() {
         const NAME = document.getElementById('presentation-name');
         const LOCATION = document.getElementById('presentation-location');
