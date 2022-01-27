@@ -331,7 +331,8 @@ form textarea {
     height: 100%; 
 }
 #lightbox-content {
-    width: 80%;
+    width: 100%;
+    margin: 0 100px;
     position: relative;
     height: 85%;
 }
@@ -360,7 +361,7 @@ form textarea {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    width: 90%;
+    width: 86%;
     height: 100%;
 }
 #lightbox-media img,
@@ -413,6 +414,16 @@ form textarea {
     }
     form input {
         height: 45px;
+    }
+    #lightbox-content {
+        margin: 0 50px;
+    }
+    #lightbox-content .close-btn {
+        width: 32px;
+        height: 32px; 
+    }
+    #lightbox span {
+        font-size: 36px;
     }
 }
 
@@ -495,17 +506,34 @@ form textarea {
         right: 50%;
         transform: translateX(50%);
     }
-
-
-    @media screen and (max-width: 479px) {
-        .modal header h2 {
-            font-size: 36px;
-            line-height: 48px;
-        }
-        #modal-close-btn,
-        .modal header img {
-            width: 24px;
-            height: 24px;
-        }
+    #lightbox {
+        align-items: flex-start;
+    }
+    #lightbox-content {
+        margin: 20px 20px 0;
+    }
+    #lightbox-title {
+        margin-top: 0;
+    }
+}
+@media screen and (max-width: 479px) {
+    .modal header h2 {
+        font-size: 36px;
+        line-height: 48px;
+    }
+    #modal-close-btn,
+    .modal header img {
+        width: 24px;
+        height: 24px;
+    }
+    #lightbox-content {
+        margin: 10px 10px 0;
+    }
+    #lightbox-content .close-btn {
+        width: 24px;
+        height: 24px; 
+    }
+    #lightbox span {
+        font-size: 28px;
     }
 }
