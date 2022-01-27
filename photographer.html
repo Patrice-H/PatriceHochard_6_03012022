@@ -85,10 +85,12 @@
 			</div>
 		</div>
     <!-- LIGHTBOX -->
-    <section id="lightbox" aria-label="image closeup view" role="dialog" aria-modal="true">
+    <section id="lightbox" aria-label="image closeup view" role="dialog" aria-modal="true" tabindex="-1">
       <div id="lightbox-content">
-        <img src="assets/icons/close-light-color.svg" onclick="closeLightBox()" alt="Close dialog" class="close-btn" title="Close dialog" role="button" />
-        <img src="assets/icons/close-dark-color.svg" onclick="closeLightBox()" alt="Close dialog" class="close-btn" id="close-box" tabindex="0"/>
+        <button onclick="closeLightBox()" id="lightbox-close-btn" title="Close dialog">
+          <img src="assets/icons/close-light-color.svg"alt="Close dialog" class="close-btn"/>
+          <img src="assets/icons/close-dark-color.svg"alt="Close dialog" class="close-btn" id="close-box"/>
+        </button>
         <a onclick="previousMedia()" class="lightbox-btn" id="previous" title="Previous image" role="button" tabindex="0">
           <span class="fas fa-chevron-left"></span>
         </a>

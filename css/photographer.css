@@ -340,10 +340,19 @@ form textarea {
     font-size: 48px;
     color: #901C1C;
 }
-#lightbox .close-btn {
+#lightbox-close-btn {
     position: absolute;
     right: 0;
+    width: 42px;
+    height: 42px;
+    background-color: transparent;
+    border: none;
     cursor: pointer;
+}
+#lightbox .close-btn {
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 #lightbox a {
     position: absolute;
@@ -418,7 +427,8 @@ form textarea {
     #lightbox-content {
         margin: 0 50px;
     }
-    #lightbox-content .close-btn {
+    #lightbox-content .close-btn, 
+    #lightbox-close-btn {
         width: 32px;
         height: 32px; 
     }
@@ -529,7 +539,8 @@ form textarea {
     #lightbox-content {
         margin: 10px 10px 0;
     }
-    #lightbox-content .close-btn {
+    #lightbox-content .close-btn,
+    #lightbox-close-btn {
         width: 24px;
         height: 24px; 
     }
