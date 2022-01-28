@@ -38,14 +38,14 @@
         <p>Trier par :</p>
         <button onclick="openSortMenu()" aria-haspopup="listbox" aria-expanded="false" id="sort-menu-button" title="Order by drop down menu"></button>
         <ul class="hidden" role="listbox" id="sort-options" title="Order by options">
-          <li onclick="sortGalleryBy('popularity')" role="option" title="Order by popularity" tabindex="0">
+          <li class="link-option" id="popularity" role="option" title="Order by popularity" tabindex="0">
             Popularité
             <span class="fas fa-chevron-up"></span>
           </li>
           <li class="separator" role="none">────────────</li>
-          <li onclick="sortGalleryBy('date')" role="option" title="Order by date" tabindex="0">Date</li>
+          <li class="link-option" id="date" role="option" title="Order by date" tabindex="0">Date</li>
           <li class="separator" role="none">────────────</li>
-          <li onclick="sortGalleryBy('title')" role="option" title="Order by title" tabindex="0">Titre</li>
+          <li class="link-option" id="title" role="option" title="Order by title" tabindex="0">Titre</li>
         </ul>
       </div>
       <!-- GALLERY -->
@@ -85,19 +85,19 @@
 			</div>
 		</div>
     <!-- LIGHTBOX -->
-    <section id="lightbox" aria-label="image closeup view" role="dialog" aria-modal="true" tabindex="-1">
+    <section id="lightbox" aria-label="image closeup view" role="dialog" aria-modal="true">
       <div id="lightbox-content">
         <button onclick="closeLightBox()" id="lightbox-close-btn" title="Close dialog">
-          <img src="assets/icons/close-light-color.svg"alt="Close dialog" class="close-btn"/>
-          <img src="assets/icons/close-dark-color.svg"alt="Close dialog" class="close-btn" id="close-box"/>
+          <img src="assets/icons/close-light-color.svg" alt="Close dialog" class="close-btn"/>
+          <img src="assets/icons/close-dark-color.svg" alt="Close dialog" class="close-btn" id="close-box"/>
         </button>
-        <a onclick="previousMedia()" class="lightbox-btn" id="previous" title="Previous image" role="button" tabindex="0">
+        <a href="#" onclick="previousMedia()" class="lightbox-btn" id="previous" title="Previous image" role="button" tabindex="0">
           <span class="fas fa-chevron-left"></span>
         </a>
         <div id="lightbox-media">
           <h2 id="lightbox-title">media title</h2>
         </div>
-        <a onclick="nextMedia()" id="next" title="Next image" role="button" tabindex="0">
+        <a href="#" onclick="nextMedia()" id="next" title="Next image" role="button" tabindex="0">
           <span class="fas fa-chevron-right"></span>
         </a>
       </div>

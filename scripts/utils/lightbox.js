@@ -208,8 +208,8 @@ function openLightBox(id) {
     MAIN.setAttribute('aria-hidden', true);
     LIGHTBOX.style.display = 'flex';
     LIGHTBOX.setAttribute('aria-hidden', false);
+    document.getElementById('lightbox-close-btn').focus();
     displayContent(id);
-    CLOSE_BTN.focus();
     manageCloseButtonEvents();
 }
 

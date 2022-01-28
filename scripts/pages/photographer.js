@@ -8,8 +8,8 @@
 function getPhotographerPageId() {
     const URL = location.href;
     let photographerPage = URL.split('?id=')[1];
-    if (photographerPage.includes('&')) {
-        photographerPage = photographerPage.split('&')[0];
+    if (photographerPage.includes('#')) {
+        photographerPage = photographerPage.split('#')[0];
     }
 
     return photographerPage;
@@ -222,17 +222,6 @@ function sortGalleryBy(sortkey) {
 }
 
 /**
- * @description Manage return key accessibility
- */
-function accessibilityReturnKey() {
-    document.onkeydown = function(evt) {
-        if(evt.key === 'Enter') {
-            document.activeElement.onclick(evt);
-        }
-    };
-}
-
-/**
  * @description Entry function manage the display of the page
  */
 async function main() {
@@ -251,7 +240,17 @@ async function main() {
     displayAside(PHOTOGRAPHER_DATA);
     sortMedias('popularity');
     displayPhotographerGalery();
-    accessibilityReturnKey();
+    const LINKS_OPTION = Array.from(document.getElementsByClassName('link-option'));
+    LINKS_OPTION.forEach(link => {
+        link.addEventListener('click', () => {
+            sortGalleryBy(link.getAttribute('id'));
+        });
+        link.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                sortGalleryBy(link.getAttribute('id'));
+            } 
+        });
+    });
 }
 
 let medias = [];

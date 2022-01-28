@@ -46,6 +46,7 @@ function mediaFactory(data) {
         const LIKE_BUTTON = document.createElement('button');
         const LIKE_ICON = document.createElement('span');
 
+        LINK.setAttribute('href', '#');
         LINK.setAttribute('onclick', 'openLightBox(' + data.id + ')');
         LINK.setAttribute('class', 'lightbox-link');
         LINK.setAttribute('role', 'link');
