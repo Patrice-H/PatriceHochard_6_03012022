@@ -16,13 +16,13 @@
   </head>
   <body>
     <header id="header">
-      <a href="index.html" title="Home page">
-        <img src="assets/images/logo.png" class="logo" alt="logo" />
+      <a href="index.html" title="Fisheye home page" aria-label="link to home page">
+        <img src="assets/images/logo.png" alt="Fisheye home page" class="logo" />
       </a>
     </header>
     <main id="main">
       <!-- PRESENTATION SECTION -->
-      <section id="presentation" aria-label="photographer presentation">
+      <section id="presentation">
         <div id="presentation-card">
           <h1 id="presentation-name">photographer name</h1><br />
           <p class="location" id="presentation-location"></p><br />
@@ -36,8 +36,8 @@
       <!-- DROP DOWN -->
       <div id="sort-menu">
         <p>Trier par :</p>
-        <button onclick="openSortMenu()" aria-haspopup="listbox" aria-expanded="false" id="sort-menu-button" title="Order by drop down menu"></button>
-        <ul class="hidden" role="listbox" id="sort-options" title="Order by options">
+        <button onclick="openSortMenu()" aria-haspopup="listbox" aria-label="open sort menu" id="sort-menu-button" title="Order by drop down menu"></button>
+        <ul class="hidden" role="listbox" aria-expanded="false" id="sort-options" title="Order by options">
           <li class="link-option" id="popularity" role="option" title="Order by popularity" tabindex="0">
             Popularité
             <span class="fas fa-chevron-up"></span>
@@ -91,13 +91,13 @@
           <img src="assets/icons/close-light-color.svg" alt="Close dialog" class="close-btn"/>
           <img src="assets/icons/close-dark-color.svg" alt="Close dialog" class="close-btn" id="close-box"/>
         </button>
-        <a href="#" onclick="previousMedia()" class="lightbox-btn" id="previous" title="Previous image" role="button" tabindex="0">
+        <a href="#" onclick="previousMedia()" class="lightbox-btn" id="previous" title="Previous image" aria-label="Previous image" role="button" tabindex="0">
           <span class="fas fa-chevron-left"></span>
         </a>
         <div id="lightbox-media">
           <h2 id="lightbox-title">media title</h2>
         </div>
-        <a href="#" onclick="nextMedia()" id="next" title="Next image" role="button" tabindex="0">
+        <a href="#" onclick="nextMedia()" id="next" title="Next image" aria-label="Next image" role="button" tabindex="0">
           <span class="fas fa-chevron-right"></span>
         </a>
       </div>

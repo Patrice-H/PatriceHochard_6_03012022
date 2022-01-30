@@ -32,6 +32,7 @@ function photographerFactory(data) {
         
         A.setAttribute('href', LINK);
         A.setAttribute('title', data.name + ' gallery');
+        A.setAttribute('aria-label', 'link to ' + data.name + ' gallery');
         IMG.setAttribute('src', pictureFileFormat());
         IMG.setAttribute('alt', '');
         H2.textContent = data.name;

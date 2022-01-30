@@ -60,8 +60,8 @@ function mediaFactory(data) {
         LIKE.setAttribute('class', 'like');
         LIKE_COUNT.setAttribute('class', 'like-count');
         LIKE_COUNT.textContent = data.likes;
-        LIKE_BUTTON.textContent = 'Add like';
-        LIKE_ICON.setAttribute('title', 'Media likes');
+        LIKE_BUTTON.textContent = 'Like';
+        LIKE_ICON.setAttribute('title', 'Add a like to the media');
         ID_HIDDEN.setAttribute('type', 'hidden');
         ID_HIDDEN.setAttribute('name', 'id');
         ID_HIDDEN.setAttribute('value', data.photographerId);
